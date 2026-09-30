@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>叶文龙 · 简历</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{
+  --text:#171717;--text-secondary:#404040;--text-muted:#64748B;
+  --accent:#A16207;--border:#E5E5E5;
+  --font-serif:'Noto Serif SC',serif;--font-sans:'Noto Sans SC',sans-serif
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-serif);color:var(--text);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased}
+.page{max-width:780px;margin:0 auto;padding:40px 56px 44px}
+
+.header{display:flex;align-items:center;gap:32px;margin-bottom:26px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.header-info{flex:1}
+.header-name{font-size:1.85rem;font-weight:400;letter-spacing:.12em;margin-bottom:2px}
+.header-accent{width:34px;height:2px;background:var(--accent);margin:9px 0 11px}
+.header-target{font-family:var(--font-sans);font-size:.75rem;color:var(--text-muted);letter-spacing:.1em;margin-bottom:12px}
+.header-meta{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--font-sans);font-size:.6875rem;color:var(--text-muted)}
+.header-meta span{color:var(--text);font-weight:400}
+.header-portfolio{margin-top:5px;font-family:var(--font-sans);font-size:.6875rem;color:var(--accent);letter-spacing:.06em;display:inline-block}
+.header-photo{flex-shrink:0;width:68px;height:90px;overflow:hidden;border:1px solid var(--border)}
+.header-photo img{width:100%;height:100%;object-fit:cover}
+
+.section{margin-bottom:20px}
+.section-title{font-family:var(--font-sans);font-size:.6rem;color:var(--text-muted);letter-spacing:.2em;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.intro-text{font-size:.8125rem;font-weight:300;line-height:1.75;color:var(--text-secondary)}
+.edu-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.edu-school{font-size:.8125rem;font-weight:400}
+.edu-date{font-family:var(--font-sans);font-size:.6875rem;color:var(--text-muted)}
+.edu-major{font-family:var(--font-sans);font-size:.6875rem;color:var(--text-muted);margin-bottom:3px}
+.edu-detail{font-size:.6875rem;color:var(--text-secondary);font-weight:300;line-height:1.6}
+.exp-block{margin-bottom:10px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.exp-title{font-size:.8125rem;font-weight:400}
+.exp-date{font-family:var(--font-sans);font-size:.6875rem;color:var(--text-muted)}
+.exp-detail{font-size:.6875rem;color:var(--text-secondary);font-weight:300;line-height:1.6}
+.exp-detail li{list-style:none;padding-left:12px;position:relative;margin-bottom:2px}
+.exp-detail li::before{content:'';position:absolute;left:0;top:9px;width:4px;height:1px;background:var(--accent)}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--font-sans);font-size:.6875rem;color:var(--text-secondary);padding:3px 10px;border:1px solid var(--border)}
+.honor-item{font-size:.6875rem;font-weight:300;color:var(--text-secondary);margin-bottom:3px;padding-left:12px;position:relative;line-height:1.55}
+.honor-item::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.honor-level{font-family:var(--font-sans);font-size:.625rem;color:var(--text-muted);margin-left:4px}
+.certs{font-family:var(--font-sans);font-size:.6875rem;color:var(--text-muted);margin-top:8px}
+@media print{body{background:#fff}.page{padding:36px 48px}}
+@media(max-width:600px){.page{padding:24px 20px}.header{flex-direction:column-reverse;text-align:center;gap:12px}.header-accent{margin:8px auto 10px}.header-meta{flex-direction:column;gap:4px;align-items:center}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+<div class="header-info">
+<h1 class="header-name">叶 文 龙</h1>
+<div class="header-accent"></div>
+<p class="header-target">求职意向：文案策划 / 影视传媒 / 内容编导</p>
+<div class="header-meta"><span>186-8809-3570</span><span>18688093570@163.com</span><span>广东河源 · 2003.02</span></div>
+<a class="header-portfolio" href="https://yipwenlon.github.io">作品集：yipwenlon.github.io →</a>
+</div>
+<div class="header-photo"><img src="images/profile.jpg" alt="叶文龙"></div>
+</div>
+
+<div class="section">
+<h2 class="section-title">个人概述</h2>
+<p class="intro-text">以文字为根、以影像为翼的创作者。电影阅片量 1000+、微信读书 1500+ 小时，长期在文学与电影的交叉地带打磨叙事判断力。坚持诗歌、小说与 AI 视频创作，熟悉从文字到影像的转化逻辑，擅长提炼故事核心与人物弧光。</p>
+</div>
+
+<div class="section">
+<h2 class="section-title">教育背景</h2>
+<div class="edu-header"><span class="edu-school">东莞理工学院</span><span class="edu-date">2024.09 – 2026.07</span></div>
+<p class="edu-major">汉语言文学 · 本科</p>
+<p class="edu-detail">GPA 3.7 / 5.0 · 专业前 10% · 班级前二<br>核心课程：创意写作（88）、摄影（89）、中国古代文学（90.5）、中国现当代文学（89）、外国文学（90）</p>
+<div class="edu-header" style="margin-top:8px"><span class="edu-school">深圳信息职业技术学院</span><span class="edu-date">2021.09 – 2024.06</span></div>
+<p class="edu-major">智能光电技术应用 · 专科</p>
+</div>
+
+<div class="section">
+<h2 class="section-title">荣誉奖项</h2>
+<p class="honor-item">广东省大学生写作大赛<span class="honor-level">一等奖（省级）</span></p>
+<p class="honor-item">廉洁征文比赛<span class="honor-level">二等奖（校级）</span></p>
+<p class="honor-item">东莞理工学院第二届"鹭声杯"创意写作大赛<span class="honor-level">二等奖（校级）</span></p>
+<p class="honor-item">二等奖学金<span class="honor-level">（校级）</span></p>
+<p class="honor-item">中文系毕业展演舞台剧编导<span class="honor-level">铜奖 · 最佳男主角 · 最佳男配角</span></p>
+</div>
+
+<div class="section">
+<h2 class="section-title">实习经历</h2>
+<div class="exp-header"><span class="exp-title">松山湖盒子美术馆 · 公教 · 导览</span><span class="exp-date">2025.11 – 2025.12</span></div>
+<ul class="exp-detail">
+<li>将抽象当代艺术理念转化为生活化叙事，通过"案例切入 + 深层解读"引导观众理解展品隐喻，显著提升互动提问率</li>
+<li>参与馆内公共教育宣传材料的文案撰写与导览词优化，协助策划面向社区和青少年群体的艺术普及活动</li>
+<li>承担前台引导与展览咨询，观察观众反馈并灵活调整讲解策略，以共情式沟通完成文化传播</li>
+</ul>
+</div>
+
+<div class="section">
+<h2 class="section-title">校园实践</h2>
+<div class="exp-block">
+<div class="exp-header"><span class="exp-title">中文系毕业展演 · 舞台剧编导</span></div>
+<ul class="exp-detail"><li>全程主导从剧本创作、团队协调到最终舞台呈现的全过程，剧目获展演铜奖及最佳男主角、最佳男配角</li></ul>
+</div>
+<div class="exp-block">
+<div class="exp-header"><span class="exp-title">创意表达工坊 · 摄影 &amp; 编导</span></div>
+<ul class="exp-detail"><li>负责摄影创作并担任小组舞台剧编导，锻炼临场应变与团队执行能力</li></ul>
+</div>
+<div class="exp-block">
+<div class="exp-header"><span class="exp-title">摄影协会 · 核心成员</span></div>
+<ul class="exp-detail"><li>参与街拍、棚拍、公众号杂志投稿，为社团发展提供建议</li></ul>
+</div>
+</div>
+
+<div class="section" style="margin-bottom:0">
+<h2 class="section-title">技能工具</h2>
+<div class="tag-list">
+<span class="tag">创意写作</span><span class="tag">文案策划</span><span class="tag">摄影</span><span class="tag">DaVinci Resolve</span><span class="tag">剪映</span><span class="tag">Photoshop</span><span class="tag">Lightroom</span><span class="tag">AIGC 视频创作</span><span class="tag">剧本编导</span>
+</div>
+<p class="certs">CET-4 · 计算机二级 · 普通话二级乙等 · 驾驶证 C1</p>
+</div>
+
+</div>
+</body>
+</html>

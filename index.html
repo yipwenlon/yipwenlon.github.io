@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="叶文龙 · 文案创作与内容编导。以文字为根，以影像为翼。作品涵盖摄影、剧本、诗歌、小说。寻求影视传媒/文案策划岗位。">
+  <meta name="keywords" content="文案创作,内容编导,创意写作,摄影,剧本,诗歌,小说,求职作品集">
+  <meta name="author" content="叶文龙">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="叶文龙 · 文案创作与内容编导作品集">
+  <meta property="og:description" content="以文字为根，以影像为翼。用剧本构建冲突，用诗歌提炼情绪，用小说解剖人性。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yipwenlon.com">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="叶文龙 · 文案创作与内容编导作品集">
+  <meta name="twitter:description" content="以文字为根，以影像为翼。摄影、剧本、诗歌、小说作品全览。">
+
+  <!-- WeChat Sharing -->
+  <meta itemprop="name" content="叶文龙 · 文案创作与内容编导作品集">
+  <meta itemprop="description" content="以文字为根，以影像为翼。用剧本构建冲突，用诗歌提炼情绪，用小说解剖人性。">
+
+  <title>叶文龙 · 文案创作与内容编导作品集</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="loading">
+
+  <!-- Force scroll to top every time, before anything renders -->
+  <script>history.scrollRestoration='manual';window.scrollTo(0,0);</script>
+
+  <!-- ==================== Loading Screen ==================== -->
+  <div id="loader">
+    <span class="loader-text" data-text="叶 文 龙"></span>
+  </div>
+
+  <!-- ==================== Navigation ==================== -->
+  <nav id="nav">
+    <a href="#hero" class="nav-brand">叶文龙</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">关于</a></li>
+      <li><a href="#works-nav">作品</a></li>
+      <li><a href="#photography">摄影</a></li>
+      <li><a href="#ai-video">AI 影像</a></li>
+      <li><a href="#scripts">剧本</a></li>
+      <li><a href="#poetry">诗歌</a></li>
+      <li><a href="#fiction">小说</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+
+    <button class="nav-menu-btn" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== 01 · Hero Section ==================== -->
+  <section id="hero" class="section">
+    <!-- 背景视频：静音自动循环播放；poster 为加载期间的占位首帧 -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="videos/hero-bg-poster.jpg" aria-hidden="true">
+      <source src="videos/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-name">叶 文 龙</h1>
+      <div class="hero-accent"></div>
+      <p class="hero-slogan">以文字为根，以影像为翼</p>
+      <p class="hero-sub">文案创作&ensp;·&ensp;内容编导&ensp;·&ensp;创意写作</p>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-arrow">↓</span>
+      <span class="hero-scroll-text">向下翻阅</span>
+    </div>
+  </section>
+
+  <!-- ==================== 02 · About Section ==================== -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <div class="about-text">
+        <span class="section-label reveal">关 于</span>
+        <p class="about-major reveal">汉语言文学专业</p>
+        <div class="about-bio reveal">
+          <p>以文字为锚，在剧本、诗歌、小说的广阔海域里航行。</p>
+          <p>相信每一个字都有重量，每一帧画面都有温度。好的文案不是修辞的堆砌，而是对世界最诚恳的凝视与翻译。</p>
+          <p>现寻求影视传媒 / 文案策划 / 新媒体内容方向的创作岗位，希望用文字为品牌找到它最灵魂的声音。</p>
+        </div>
+
+        <div class="about-divider reveal"></div>
+
+        <div class="about-contact reveal">
+          <span>邮箱</span> 18688093570@163.com
+          <span>微信</span> yipwenlon
+          <span>社交</span> 豆瓣 · 微信读书
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 03 · Works Navigation (杂志目录式) ==================== -->
+  <section id="works-nav" class="section">
+    <div class="section-inner">
+      <div class="works-header reveal">
+        <span class="works-label">目 录</span>
+        <h2 class="section-title" style="margin-bottom:0;">作 品</h2>
+      </div>
+
+      <div class="works-grid">
+        <!-- 摄影：主入口，占满左列 -->
+        <a href="#photography" class="works-card works-card-main reveal" style="background:#F5F0E8;">
+          <div class="works-card-img"></div>
+          <span class="works-card-name">摄影作品</span>
+          <div class="works-card-accent"></div>
+          <p class="works-card-tagline">光影为笔，定格人间</p>
+        </a>
+
+        <!-- AI 影像 -->
+        <a href="#ai-video" class="works-card works-card-secondary reveal reveal-delay-1" style="background:#EBEFF4;">
+          <span class="works-card-name">AI 影像</span>
+          <div class="works-card-accent"></div>
+          <p class="works-card-tagline">以算法为笔，让想象动起来</p>
+        </a>
+
+        <!-- 剧本 -->
+        <a href="#scripts" class="works-card works-card-secondary reveal reveal-delay-2" style="background:#EEF2EE;">
+          <span class="works-card-name">舞台剧本</span>
+          <div class="works-card-accent"></div>
+          <p class="works-card-tagline">以冲突为镜，照见人心</p>
+        </a>
+
+        <!-- 诗歌（深色反转） -->
+        <a href="#poetry" class="works-card works-card-secondary reveal reveal-delay-3" style="background:var(--color-bg-dark);">
+          <span class="works-card-name" style="color:var(--color-text-light);">诗 歌</span>
+          <div class="works-card-accent"></div>
+          <p class="works-card-tagline">以韵律为舟，渡情绪之河</p>
+        </a>
+
+        <!-- 小说 -->
+        <a href="#fiction" class="works-card works-card-secondary reveal reveal-delay-4" style="background:#F3F0EC;">
+          <span class="works-card-name">短篇小说</span>
+          <div class="works-card-accent"></div>
+          <p class="works-card-tagline">以虚构之刀，解剖真实</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 04 · Photography Section ==================== -->
+  <section id="photography" class="section">
+    <div class="section-inner">
+      <span class="section-label reveal">摄影作品</span>
+      <h2 class="section-title reveal">人像与街拍</h2>
+
+      <!-- 系列筛选 -->
+      <div class="photo-filters reveal">
+        <button class="photo-filter active" data-filter="all">全部作品</button>
+        <button class="photo-filter" data-filter="portrait-between">之间——人像</button>
+        <button class="photo-filter" data-filter="city-slice">城市切片——街拍</button>
+      </div>
+
+      <!-- 瀑布流画廊 -->
+      <div id="photo-gallery" class="photo-gallery">
+        <!-- 之间——人像系列 (8张：01-08) -->
+        <div class="photo-item" data-series="portrait-between">
+          <img src="images/photography/摄影_01.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之一</p>
+            <p class="photo-caption-desc">人与人之间，总有一段未说出口的距离</p>
+          </div>
+        </div>
+        <div class="photo-item portrait" data-series="portrait-between">
+          <img src="images/photography/摄影_02.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之二</p>
+            <p class="photo-caption-desc">镜头是第三种目光</p>
+          </div>
+        </div>
+        <div class="photo-item" data-series="portrait-between">
+          <img src="images/photography/摄影_03.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之三</p>
+            <p class="photo-caption-desc">每一张脸都是一部未写完的小说</p>
+          </div>
+        </div>
+        <div class="photo-item wide" data-series="portrait-between">
+          <img src="images/photography/摄影_04.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之四</p>
+            <p class="photo-caption-desc">不必说话，让光影替你开口</p>
+          </div>
+        </div>
+        <div class="photo-item portrait" data-series="portrait-between">
+          <img src="images/photography/摄影_05.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之五</p>
+            <p class="photo-caption-desc">眼神是最诚实的语言</p>
+          </div>
+        </div>
+        <div class="photo-item" data-series="portrait-between">
+          <img src="images/photography/摄影_06.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之六</p>
+            <p class="photo-caption-desc">在快门落下之前，我们曾对视过</p>
+          </div>
+        </div>
+        <div class="photo-item wide" data-series="portrait-between">
+          <img src="images/photography/摄影_07.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之七</p>
+            <p class="photo-caption-desc">侧脸是一首没有标题的诗</p>
+          </div>
+        </div>
+        <div class="photo-item portrait" data-series="portrait-between">
+          <img src="images/photography/摄影_08.jpg" alt="之间——人像" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">之间——人像 之八</p>
+            <p class="photo-caption-desc">我们都是彼此镜头里的陌生人</p>
+          </div>
+        </div>
+
+        <!-- 城市切片——街拍系列 (8张：09-16) -->
+        <div class="photo-item" data-series="city-slice">
+          <img src="images/photography/摄影_09.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之一</p>
+            <p class="photo-caption-desc">街角的光，是这个城市最诚实的语言</p>
+          </div>
+        </div>
+        <div class="photo-item wide" data-series="city-slice">
+          <img src="images/photography/摄影_10.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之二</p>
+            <p class="photo-caption-desc">斑马线上的交响曲</p>
+          </div>
+        </div>
+        <div class="photo-item" data-series="city-slice">
+          <img src="images/photography/摄影_11.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之三</p>
+            <p class="photo-caption-desc">每一扇橱窗都藏着一个故事</p>
+          </div>
+        </div>
+        <div class="photo-item portrait" data-series="city-slice">
+          <img src="images/photography/摄影_12.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之四</p>
+            <p class="photo-caption-desc">傍晚六点，下班的人流如潮水</p>
+          </div>
+        </div>
+        <div class="photo-item wide" data-series="city-slice">
+          <img src="images/photography/摄影_13.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之五</p>
+            <p class="photo-caption-desc">雨天的城市是另一个世界</p>
+          </div>
+        </div>
+        <div class="photo-item" data-series="city-slice">
+          <img src="images/photography/摄影_14.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之六</p>
+            <p class="photo-caption-desc">高楼的阴影里，有人在吃午饭</p>
+          </div>
+        </div>
+        <div class="photo-item portrait" data-series="city-slice">
+          <img src="images/photography/摄影_15.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之七</p>
+            <p class="photo-caption-desc">深夜便利店的光，是城市最后的温柔</p>
+          </div>
+        </div>
+        <div class="photo-item" data-series="city-slice">
+          <img src="images/photography/摄影_16.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之八</p>
+            <p class="photo-caption-desc">天桥上，我拍下了整座城市的背影</p>
+          </div>
+        </div>
+        <div class="photo-item wide" data-series="city-slice">
+          <img src="images/photography/摄影_17.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之九</p>
+            <p class="photo-caption-desc">凌晨四点的街道，只有扫街人和我醒着</p>
+          </div>
+        </div>
+        <div class="photo-item portrait" data-series="city-slice">
+          <img src="images/photography/摄影_18.jpg" alt="城市切片——街拍" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
+          <div class="photo-caption">
+            <p class="photo-caption-title">城市切片 之十</p>
+            <p class="photo-caption-desc">城市从不说话，但它记得每一个路过的人</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button id="lightbox-close" class="lightbox-close" aria-label="关闭">✕</button>
+      <button id="lightbox-prev" class="lightbox-prev" aria-label="上一张">‹</button>
+      <button id="lightbox-next" class="lightbox-next" aria-label="下一张">›</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 05 · AI Video Section ==================== -->
+  <section id="ai-video" class="section">
+    <div class="section-inner">
+      <span class="section-label reveal">AI 影像</span>
+      <h2 class="section-title reveal">让想象动起来</h2>
+      <p class="ai-video-intro reveal">用 AI 影像工具完成的漫剧与短片。从分镜、动作节奏到镜头运动逐镜把控，把文字脚本变成会动的画面。</p>
+
+      <div id="ai-video-grid" class="ai-video-grid">
+        <article class="ai-video-card reveal" data-src="videos/ai-anime-1.mp4" data-poster="images/ai-anime-1-cover.jpg">
+          <div class="ai-video-thumb">
+            <img src="images/ai-anime-1-cover.jpg" alt="纯粹打戏 封面" loading="lazy">
+            <span class="ai-video-play" aria-hidden="true"></span>
+          </div>
+          <h3 class="ai-video-title">纯粹打戏</h3>
+          <p class="ai-video-meta">AI 漫剧 · 1 分 09 秒</p>
+          <p class="ai-video-desc">混凝土废墟里的纯粹交手。无对白，靠动作节奏、镜头切换与打击特效撑满全片。</p>
+        </article>
+      </div>
+    </div>
+
+    <div id="video-modal" class="video-modal" aria-hidden="true">
+      <button id="video-modal-close" class="video-modal-close" aria-label="关闭">✕</button>
+      <div class="video-modal-inner">
+        <div id="video-modal-frame" class="video-modal-frame"></div>
+        <p id="video-modal-caption" class="video-modal-caption"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 06 · Scripts Section ==================== -->
+  <section id="scripts" class="section">
+    <div class="section-inner">
+      <span class="section-label reveal">舞台剧本</span>
+      <h2 class="section-title reveal">以冲突为镜</h2>
+
+      <div class="scripts-layout">
+        <!-- 左侧目录 -->
+        <div class="scripts-sidebar reveal">
+          <button class="script-tab active" data-script="1">《容忍与自由》</button>
+          <button class="script-tab" data-script="2">《开市》</button>
+        </div>
+
+        <!-- 右侧内容区 -->
+        <div class="scripts-content reveal">
+          <!-- 剧本 1：《容忍与自由》 -->
+          <div id="script-1" class="script-panel active">
+            <h3 class="script-title">《容忍与自由》</h3>
+
+            <p class="script-section-label">故事梗概</p>
+            <p class="script-synopsis">
+              快递员小文因一次换货失误，被客户老陈钻了平台规则的空子。价值近两千的快递退不回去，公司要把损失算在他账上。小文多次上门追讨，老陈夫妇却始终避而不见。一次对峙中，小文发现老陈家水阀可以控制，愤而关阀逼其现身。门开后，老陈反咬一口，威胁报警。沉默中，小文从快递袋里抽出一把刀——这不是他第一次被“规则”逼到墙角。剧本以快递行业年均1500亿件的业务量新闻开场，用冰冷的数字对照一个快递员被系统碾碎的尊严，追问：当“容忍”成为底层唯一的生存策略，“自由”还剩多少空间？
+            </p>
+
+            <p class="script-section-label">经典对白</p>
+            <p class="dialogue-direction">场景：逼仄的出租屋里，小文边听电视新闻边吃泡面。电话响起。</p>
+            <div class="script-dialogue">
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（电话铃声：叮铃……叮铃……小文不接。再次响起，小文不情愿地接了。）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">公司领导老杨</p>
+                <p class="dialogue-line">喂，小文，打你这么多个电话都不接，干什么去了？昨天那个换错货的快递退回去没有啊？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">快递员小文</p>
+                <p class="dialogue-line">老杨，不好意思啊，刚刚在洗澡，没听见。那个快递我昨天又打了好几个电话都不接，去到他们家门口，一盏灯都看不到。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">公司领导老杨</p>
+                <p class="dialogue-line">那明天就再去，打不通就一直打，货不管怎样都要退回去，里面的东西可不便宜，快两千了，退不回去，算你账上啊？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">快递员小文</p>
+                <p class="dialogue-line">我也是没办法，找不到人。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">公司领导老杨</p>
+                <p class="dialogue-line">叫你当时不看清楚，说了按流程办事，规规矩矩的，拍照拍仔细，拍清楚一些不就好了，你看，让人钻了空子，倒打你一耙，早都跟你说了。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">快递员小文</p>
+                <p class="dialogue-line">老杨，你也不是不知道，一天这么多货，一时我也看不过来，时间也不允许，快递收多一单就多一单钱嘛。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">公司领导老杨</p>
+                <p class="dialogue-line">行行行，别说这么多，不管时间允不允许，规矩就是规矩，如果商家那边不收货，明天这个货退不回去，就算你账上了，知道不，<span class="dialogue-direction-inline">（小声）</span>拖好几天了。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（嘟……电话挂断。小文继续吃泡面。电话再次响起。）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">小文</p>
+                <p class="dialogue-line">喂，妈。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line">儿子，吃饭了吗？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">小文</p>
+                <p class="dialogue-line">吃着呢。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line">工作怎么样了？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">小文</p>
+                <p class="dialogue-line">还能怎么样，刚开始嘛，一步步做。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line">工作就好好工作，别像你爸天天出去赌，没钱了还赌，说两句还动起手来了。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">小文</p>
+                <p class="dialogue-line">你们怎么老是这样。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line">家里也没什么钱了，你爸年纪也大，你现在出来工作，每个月记得给家里打些钱回来。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">小文</p>
+                <p class="dialogue-line">妈，我现在才出来两个多月，没攒下什么钱。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line">我知道我知道，但是记住千万别出去乱花钱，存着。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">小文</p>
+                <p class="dialogue-line">我没有乱花钱，泡面我都吃上了，你还想我怎么乱花钱。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line">还有一件事我不敢和你说，你弟弟，他去卖血了。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（小文把电话丢在桌子上，不想听。）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">妈妈</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（声音变模糊）</span> 我在他抽屉发现了献血证，一个月就去两次，今年去了差不多二十次了，急死我了。我不敢问他，我就去那个血浆站问，他们说卖一次血就有300块，他肯定是没钱花了，你爸又不理他了，所以他才出去……</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（嘟……小文把电话挂断，然后继续吃面，随后点起一根烟。）</p>
+              </div>
+            </div>
+
+            <p class="script-section-label">创作手记</p>
+            <p class="script-note">
+              这个剧本的灵感来自一条真实新闻：一位快递员因客户恶意赖货，悍然拔刀。我好奇的是——当“服务者”与“消费者”的身份被平台规则固化，暴力是如何从系统里“泄漏”到个体之间的？<br><br>开场那段1500亿件快递的新闻播报，是我刻意设计的“反讽装置”。数字越庞大，小文的个体处境越渺小。我试图用新闻的“宏大叙事”与出租屋的“逼仄现实”形成对位，让观众在两种语态的切换中感到不适。<br><br>方言念白和心跳声的运用，是我对“底层叙事”的一种形式探索。小文不是恶人，老陈也不是——他们只是被困在同一个系统里的两个普通人。那把刀的出现，不是戏剧性的高潮，而是系统暴力的必然结果。我想问的其实是：如果我们都是这个系统的一部分，“容忍”到底是谁的自由？
+            </p>
+          </div>
+
+          <!-- 剧本 2：《开市》 -->
+          <div id="script-2" class="script-panel">
+            <h3 class="script-title">《开市》</h3>
+
+            <p class="script-section-label">故事梗概</p>
+            <p class="script-synopsis">
+              凌晨，镇上一条偏僻小路，两个落魄男人合伙开了一间只卖薯片的小卖部，从无一人光临。圆圆嗜睡，角角焦虑，两人在等待“开市”的漫长时间里，迎来两位顾客：戴满钻戒的夸夸小姐要买“一模一样的钻戒”和“一模一样的口红”，摄影师拍拍要“定格”他们的时间。最终，薯片被扔光，小卖部被“买走”，而他们只换来一张“最有意义的照片”。天亮之前，他们依然没有收入。
+            </p>
+
+            <p class="script-section-label">经典对白</p>
+            <p class="dialogue-direction">场景：夸夸小姐进入店铺，要求买钻戒。</p>
+            <div class="script-dialogue">
+              <div class="dialogue-block">
+                <p class="dialogue-character">夸夸</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（把戴满了钻戒的手放在台面上，圆圆和角角立即被吸引住，左右盯着看）</span> 我要一模一样的钻戒 <span class="dialogue-direction-inline">（另一只手抬起示意）</span>。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（疑惑）</span> 你当时为什么不买齐呢？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">夸夸</p>
+                <p class="dialogue-line">不需要问，你们想多久都想不明白。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（圆圆和角角面面相觑，随后齐齐点头）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line">你这戒指真好看 <span class="dialogue-direction-inline">（微笑，左右环绕着看，突然疑惑）</span>。可是为什么有六根手指？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line">你瞎了吗？看清楚，明明是四根。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">夸夸</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（生气，又把手往前伸了伸）</span> 再看清楚一些。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（两人凑近观看）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（用手指数）</span> 一……二……三……四……五……六 <span class="dialogue-direction-inline">（停顿，擦擦眼睛）</span>。六根，就是六根！难道我近视了？<span class="dialogue-direction-inline">（跑到舞台一侧继续数：一、二……）</span></p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（用手指数）</span> 一……二……三……四 <span class="dialogue-direction-inline">（摘下眼镜擦了擦又戴回去）</span>。一……二……三……四，就是四根啊。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（从一侧回来，和角角并排站好，双手叉腰，对着角角）</span> 真是奇怪。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（对着圆圆）</span> 真是奇怪，不是吗？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">夸夸</p>
+                <p class="dialogue-line">你们纠结完了吗？物质的东西总是变来变去的。有一模一样的钻戒吗？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line">我们没有钻戒。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（紧接着）</span> 我们只有薯片。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">夸夸</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（笑着）</span> 你们真是可怜。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（圆圆和角角面面相觑）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（对着角角）</span> 我们可怜吗？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line">好像是这样。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（对着夸夸）</span> 我们没有钻戒，但你看起来很高兴。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（点头）</span> 好像是这样。</p>
+              </div>
+            </div>
+
+            <p class="script-section-label">经典对白（其二）</p>
+            <p class="dialogue-direction">场景：摄影师拍拍要离开，角角追问。</p>
+            <div class="script-dialogue">
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（着急，赶忙站起，圆圆摔倒在地）</span> 先生，你还没买东西呢？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">拍拍</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（边走边大声说）</span> 我已经买了。<span class="dialogue-direction-inline">（从侧幕下场）</span></p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（自言自语）</span> 买了？买了什么？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-direction-inline">（四处看，看到圆圆倒在地上，露出愧疚的表情）</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line"><span class="dialogue-direction-inline">（缓慢起身，对着角角）</span> 买了 <span class="dialogue-direction-inline">（略顿）</span> 我们的时间？这么说我们开市了？</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">角角</p>
+                <p class="dialogue-line">可是他什么都没给我们。</p>
+              </div>
+              <div class="dialogue-block">
+                <p class="dialogue-character">圆圆</p>
+                <p class="dialogue-line">是啊，什么都没有。</p>
+              </div>
+            </div>
+
+            <p class="script-section-label">创作手记</p>
+            <p class="script-note">
+              《开市》的灵感直接来自贝克特的《等待戈多》。读这部剧的时候，我被那种“什么都没有发生，但一切又都在发生”的质感迷住了。我想：如果戈多不是一个人，而是一种“开市”的状态呢？如果等待的对象从“人”变成了“消费行为”本身呢？<br><br>圆圆和角角的名字是有设计的。“圆”是闭合、循环、没有出口；“角”是尖锐、焦虑、总想找到突破口。但他们被困在同一个凌晨，同一种商品（薯片），同一种等待里。夸夸小姐和摄影师拍拍，是我设置的“消费社会的两种面孔”：一个是用物质标准衡量一切，另一个是用“记录”和“定格”来消费他人的时间。<br><br>“六根手指还是四根”的争论，写的时候我自己也数了很多遍。我想制造一种“标准失效”的荒诞感——当夸夸小姐要求“一模一样”时，她其实在要求一个不可能被复制的东西。而圆圆和角角对“数量”的执着，恰恰暴露了他们已经被这套逻辑同化，只是自己还没意识到。最后“买了我们的时间”这句台词，是我对当下内容创作的一种自嘲：我们是否也在用“记录”的名义，消费着别人的生活，同时被自己的生活所消费？
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ==================== 07 · Poetry Section ==================== -->
+  <section id="poetry" class="section">
+    <!-- 深/浅色切换 -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="切换阅读模式">
+      <span class="theme-toggle-label">浅</span>
+      <span class="theme-toggle-switch"></span>
+      <span class="theme-toggle-label">深</span>
+    </button>
+
+    <div class="poetry-container">
+      <div id="poem-display" class="poem-display active"
+           data-poems='[
+  {
+    "title": "父 辈",
+    "lines": [
+      "我凝望着远山上的那片墓地",
+      "墓地之下，几条小径通幽",
+      "那里隐藏着我们的足迹",
+      "我们曾手牵手漫步",
+      "",
+      "摆啊摆，摆啊摆，我们徜徉",
+      "在腾腾的大雾中迷失了方向",
+      "雾中隐约浮现出一片园林",
+      "园林上空，一缕炊烟轻轻飘散",
+      "",
+      "这炊烟，来自遥远的百年前",
+      "来自那座古老的砖瓦房",
+      "砖瓦房内，柴火熊熊燃烧",
+      "熏黑了白昼，也熏黑了夜晚",
+      "",
+      "你们带来丰盛的食物与美酒",
+      "我们也携来食物，斟满酒杯"
+    ],
+    "meta": "创作于清明，入选中国诗歌网"
+  },
+  {
+    "title": "理信时代",
+    "lines": [
+      "假钞自他们口中一张张印制而出",
+      "却无贪婪之态",
+      "那变幻莫测的数额",
+      "起源于一个谎言",
+      "它就像烂木板上的一枚未钉牢的斜钉",
+      "经受一锤又一锤",
+      "即便歪了也无人理会",
+      "我陷入沉思——",
+      "我与这陌生的时代，正逐渐分裂",
+      "我们在数字的长河中",
+      "化作一段被遗忘的往事",
+      "一端是极端的迷信",
+      "而我们——",
+      "正迈向另一个极端"
+    ],
+    "meta": ""
+  },
+  {
+    "title": "历史的囚牢",
+    "lines": [
+      "说书人抒情的哑嗓",
+      "是被历史饕餮啃食过的残章",
+      "他的骨灰布满每一处孤独的暗角",
+      "心脏在故事的风暴中疯狂跳荡",
+      "",
+      "杨贵妃遗落的玉簪",
+      "是奏响哀歌的回魂曲",
+      "王朝的噩梦预示着大厦将倾",
+      "心脏在序曲的酝酿中慌乱摇晃",
+      "",
+      "博尔赫斯惊惶的一念",
+      "是沙之书隐没的错乱时空",
+      "他短暂的一生闪烁着无限的智慧",
+      "心脏在时空的漩涡中挣扎安睡",
+      "",
+      "啊！监狱的猴子们",
+      "你们满眼绝望，你们向天祈求",
+      "你们逃不出去，你们等吧等吧",
+      "盘古劈开的",
+      "——正是监狱无形的铁墙",
+      "而女娲的彩石",
+      "——补上的却是逃向自由的希望"
+    ],
+    "meta": ""
+  },
+  {
+    "title": "某年某月某日在一家电子厂内听一位可爱的女人倾诉",
+    "lines": [
+      "她在无人监管的空隙同我搭话，",
+      "一位可爱的女人，似乎被人遗忘在但丁的地狱。",
+      "脸上初生时的皱纹一定如少女的乳头般粉红，",
+      "如今却如泥土一般，发烂发黑发黄，",
+      "散发一股劣质香水味。",
+      "",
+      "她畅谈科学与迷信的交叉经历，",
+      "畅谈与儿子在乡下的麦田里如何淫荡却无一点震惊，",
+      "畅谈斧子与麦子的制作过程。",
+      "突然！那臃肿的右手在空中拉出一条长长的直线，",
+      "另一只手奋力地在直线上砍砍砍，",
+      "嘴里歪斜颤抖地大叫——",
+      "“大米！大米！从那端哗哗哗哗地流出来了！”",
+      "不间断的大笑同时发生，疯了，疯了，",
+      "一切的结果竟是为了买几个人的休息。",
+      "",
+      "她又一本正经地分析一个公平的机制，",
+      "总有人要出头争论——工位的固化是不可理喻的。",
+      "管理者的毫无建树使产量根本上不去，",
+      "为此她再次提出惊人的见解——",
+      "那些来自八十年代至今，",
+      "近乎四十年的“前沿经验”。",
+      "不久她仍未意识到，",
+      "手里良莠不齐的电子器件分类是徒劳的，",
+      "她欺骗了在场的所有人。",
+      "",
+      "最终她决定要召集那些精神残废的人，",
+      "特别是包装工位的人，甚至所有人，",
+      "用仓库报废的元器件——大约有五六吨重，",
+      "在某个晚上狠狠砸向老板。",
+      "第二天她吹着富有年代感的口哨走上二楼的工作区，",
+      "继续忍受无数机器反复吟唱的魔鬼般的轰隆声，",
+      "某种悲哀的物质在蚕食脑细胞，",
+      "拉扯她三层厚厚的大衣和她的皮，",
+      "她的肉，她的脑神经。",
+      "她的血汩汩地顺着电流流到整个电子厂的所有机器，",
+      "给我停机！停机！停机！"
+    ],
+    "meta": "意识流叙事长诗"
+  },
+  {
+    "title": "临近毕业前",
+    "lines": [
+      "一排排榕树",
+      "凌乱的脚步踩在",
+      "往人的迷茫上",
+      "干瘪，云淡淡",
+      "纸蝴蝶，坚定",
+      "围着繁茂的四叶草",
+      "一旁，被啃啮过的蚀叶",
+      "施工的粉尘",
+      "黄昏打旋的车轮",
+      "我骑到海中去"
+    ],
+    "meta": ""
+  }
+]'>
+      </div>
+
+      <!-- 翻页导航 -->
+      <div class="poem-nav">
+        <button id="poem-prev" class="poem-nav-btn">← 上一首</button>
+        <span id="poem-counter" class="poem-nav-counter">1 / 5</span>
+        <button id="poem-next" class="poem-nav-btn">下一首 →</button>
+      </div>
+    </div>
+  </section>
+<!-- ==================== 08 · Fiction Section ==================== -->
+  <section id="fiction" class="section">
+    <div class="section-inner">
+      <span class="section-label reveal">短篇小说</span>
+      <h2 class="section-title reveal">以虚构之刀</h2>
+
+      <div class="fiction-grid">
+        <!-- 小说 1：《送别仪式》 -->
+        <div class="fiction-card reveal">
+          <div class="fiction-card-front">
+            <h3 class="fiction-title">《送别仪式》<span class="fiction-award">广东省大学生写作大赛一等奖</span></h3>
+            <p class="fiction-quote">「好像从机械的轰鸣声中能窥见世界背后的真理。」</p>
+            <p class="fiction-quote">「手指每叩击一次四角桌，求神者就得为亲人的命运缴纳费用，否则神灵将保持缄默。」</p>
+            <p class="fiction-quote">「宇宙存在着巨大的寂静，在我们之前。」</p>
+          </div>
+          <div class="fiction-card-back">
+            <p class="fiction-synopsis">
+              叙述者在回乡奔丧的列车上陷入一场漫长的梦境。梦中，祖父的钥匙、带锁的木盒、符箓与求神仪式，同车厢里老妇人的咒语、白发老人的预言、席卷而来的黑烟与烈火相互撕扯。火葬的场景与列车燃烧的画面不断叠化，死亡的灼热与记忆的灰烬混为一体。最终，一声餐车叫卖将他惊醒——烈日依旧，邻座空无，唯有座位底下一枚生锈的钥匙，模糊了梦境与现实的边界。
+            </p>
+            <a href="assets/novel-1.pdf" target="_blank" class="fiction-link">阅读全文</a>
+          </div>
+        </div>
+
+        <!-- 小说 2：《名额》 -->
+        <div class="fiction-card reveal reveal-delay-1">
+          <div class="fiction-card-front">
+            <h3 class="fiction-title">《名额》<span class="fiction-award">廉洁征文比赛二等奖</span></h3>
+            <p class="fiction-quote">「即使一天辛勤的劳作已让她身心俱疲，但听到女儿这几句亲切的叫唤……万分疲倦都随着太阳落到西边去了。」</p>
+            <p class="fiction-quote">「她明白这是大城市，她一个乡下人无论如何羞耻的恳求，都不会得到任何人的同情和怜悯，甚至还会受到讥诮和藐视。」</p>
+            <p class="fiction-quote">「下一个到谁了，下周六再约过来，还有十九个呢。」</p>
+          </div>
+          <div class="fiction-card-back">
+            <p class="fiction-synopsis">
+              一位被卖作童养媳、又被丈夫抛弃的农村单身母亲，十二年如一日在田间与杂活中挣扎，只为把女儿送进城里最好的中学。当女儿终于以优异成绩夺得那珍贵的入学名额时，校方却以"不招农村学生"为由，向她索要各种"费用"。在权力与金钱的合谋面前，母亲屈辱地接受了勒索。而她离开后，两位负责人长吁一口气："下一个到谁了，下周六再约过来，还有十九个呢。"
+            </p>
+            <a href="assets/novel-3.pdf" target="_blank" class="fiction-link">阅读全文</a>
+          </div>
+        </div>
+
+        <!-- 小说 3：《怪得了谁》 -->
+        <div class="fiction-card reveal reveal-delay-2">
+          <div class="fiction-card-front">
+            <h3 class="fiction-title">《怪得了谁》</h3>
+            <p class="fiction-quote">「对他来说清晨很宝贵，于是睡前他决定让黎明的太阳独自照耀。」</p>
+            <p class="fiction-quote">「他像个凶手，反复在同一处寻找落人把柄的证据，他不喜欢这样，但总是情不自禁。」</p>
+            <p class="fiction-quote">「他明白上车后，世界的规则已由不得他掌控，他能做的只有一件事，就是相信司机。」</p>
+          </div>
+          <div class="fiction-card-back">
+            <p class="fiction-synopsis">
+              放假前的最后一天，一名大学生被整理行李、流鼻血、腰伤、洗衣事故等琐事拖入混乱的泥潭。时间一点点被焦虑啃噬，他最终催促快车司机违规逆行赶火车，却引发车祸。就在他急于逃离时，发现另一个"自己"正在车祸现场焦灼地催促，而所有围观者都穿着与他一模一样的衣服——绣着大蜗牛的白色长袖。小说以荒诞的循环结局，呈现现代人被时间暴力与自我复制所围困的处境。
+            </p>
+            <a href="assets/novel-2.pdf" target="_blank" class="fiction-link">阅读全文</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 09 · Contact Section ==================== -->
+  <section id="contact" class="section">
+    <div class="section-inner">
+      <span class="section-label reveal">联 系</span>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="section-title reveal" style="margin-bottom:var(--spacing-sm);">期待与你相遇</h2>
+          <p class="about-bio reveal" style="font-size:var(--text-sm);margin-bottom:0;">
+            如果你正在寻找一个能用文字讲好故事的人，请随时联系我。
+          </p>
+
+          <div class="contact-divider reveal"></div>
+
+          <div class="contact-methods reveal">
+            <div class="contact-item">
+              <span class="contact-item-label">邮箱</span>
+              <a href="mailto:18688093570@163.com" class="contact-item-value">18688093570@163.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item-label">微信</span>
+              <span class="contact-item-value">yipwenlon</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item-label">社交</span>
+              <span class="contact-item-value">
+                <a href="#" target="_blank" rel="noopener">豆瓣</a>
+                &nbsp;·&nbsp;
+                <a href="#" target="_blank" rel="noopener">微信读书</a>
+              </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-resume reveal">
+          <a href="assets/resume.pdf" class="btn-resume" target="_blank" download>下载简历</a>
+
+          <div class="contact-qr">
+            <img src="images/wechat-qr.png" alt="微信二维码"
+                 onerror="this.style.display='none'; this.nextElementSibling.textContent='（请替换为你的微信二维码）';">
+            <p class="contact-qr-text">扫码添加微信</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer + Easter Egg ==================== -->
+  <footer id="footer">
+    <p class="footer-text" id="easter-egg-trigger" title="点我">
+      「写作，是我对自己仅有的诚实。」
+    </p>
+    <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--spacing-xs);">
+      © 2026 叶文龙
+    </p>
+  </footer>
+
+  <!-- 彩蛋弹窗 -->
+  <div id="easter-egg" class="easter-egg" aria-hidden="true">
+    <button id="easter-egg-close" style="position:absolute;top:8px;right:12px;font-size:14px;color:var(--color-text-muted);">✕</button>
+    <p>她在深夜敲下最后一个字，屏幕的光映在眼镜上。窗外是凌晨四点的城市，安静得像一个巨大的、还未开口的句子。她知道，明天醒来，这些字会替她说话。</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
