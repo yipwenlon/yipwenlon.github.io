@@ -621,7 +621,8 @@ button {
   margin-bottom: var(--spacing-xs);
 }
 
-.works-card:nth-child(3) .works-card-name { color: var(--color-text-light); }
+/* 深色卡片（诗歌）的标题颜色由 HTML 内联样式控制。
+   注意：不要用 :nth-child 定位 —— 在作品目录里插入或调整卡片顺序会导致颜色错位。 */
 
 .works-card-tagline {
   font-family: var(--font-sans);
