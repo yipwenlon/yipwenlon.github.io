@@ -281,7 +281,7 @@
     }
   };
 
-  /* ========== Poetry Carousel + Theme Toggle ========== */
+  /* ========== Poetry Carousel ========== */
   const Poetry = {
     currentIndex: 0,
     poems: [],
@@ -289,7 +289,6 @@
     init() {
       this.display = document.getElementById('poem-display');
       this.counter = document.getElementById('poem-counter');
-      this.themeToggle = document.getElementById('theme-toggle');
 
       if (!this.display) return;
 
@@ -299,8 +298,6 @@
 
       document.getElementById('poem-prev')?.addEventListener('click', () => this.prev());
       document.getElementById('poem-next')?.addEventListener('click', () => this.next());
-
-      this.themeToggle?.addEventListener('click', () => this.toggleTheme());
 
       // Keyboard navigation
       document.addEventListener('keydown', (e) => {
@@ -358,11 +355,6 @@
     next() {
       this.currentIndex = (this.currentIndex + 1) % this.poems.length;
       this.renderPoem(true);
-    },
-
-    toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current === 'dark' ? '' : 'dark');
     }
   };
 

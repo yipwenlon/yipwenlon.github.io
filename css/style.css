@@ -10,6 +10,9 @@
   /* 颜色 */
   --color-bg: #FAFAF8;
   --color-bg-alt: #FFFFFF;
+  /* 半透明版本：各板块用它做背景，好让底层的动态光晕透出来 */
+  --color-bg-veil: rgba(250, 250, 248, 0.52);
+  --color-bg-alt-veil: rgba(255, 255, 255, 0.40);
   --color-bg-dark: #171717;
   --color-text: #171717;
   --color-text-secondary: #404040;
@@ -86,16 +89,55 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-size: 16px;
+  /* 底色放在根元素上：这样 body::before 的 z-index:-1 光晕层才不会被遮挡 */
+  background-color: var(--color-bg);
+  transition: background-color var(--duration-normal) var(--ease-in-out);
 }
 
 body {
   font-family: var(--font-serif);
   color: var(--color-text);
-  background: var(--color-bg);
+  /* 底色交给 html，光晕交给 body::before —— 这里必须透明，
+     否则会盖住 z-index:-1 的光晕层。 */
+  background: transparent;
   line-height: 1.8;
   overflow-x: hidden;
-  transition: background var(--duration-normal) var(--ease-in-out),
-              color var(--duration-normal) var(--ease-in-out);
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+/* 全站极淡的动态背景：暖色光晕。
+   性能要点（这里踩过坑）：
+   1) 动画只驱动 transform —— GPU 加速、不触发重绘。
+      ⚠️ 绝不要用 background-position 动画：它每帧重绘整个页面，
+      会和 Hero 的视频解码抢主线程，导致视频卡顿、首帧延迟。
+   2) position: fixed 让光晕不随内容滚动 → 滑动时与内容产生视差。
+   3) will-change 提升为独立合成层，滚动时不参与重绘。 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 60% 48% at 26% 22%, rgba(161, 98, 7, 0.26), transparent 68%),
+    radial-gradient(ellipse 55% 44% at 76% 74%, rgba(132, 96, 48, 0.23), transparent 68%);
+  animation: bgDrift 60s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes bgDrift {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(3%, 2.5%, 0); }
+}
+
+/* 深色模式下底色本就暗，光晕要收敛 */
+[data-theme="dark"] body::before {
+  opacity: 0.45;
+}
+
+/* 系统开启「减少动态效果」时保持静止 */
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
 }
 
 body.loading {
@@ -383,25 +425,17 @@ button {
 #hero .hero-name,
 #hero .hero-slogan,
 #hero .hero-sub {
+  /* 三层阴影：近距保边缘、中距保形状、远距在亮背景上拉开对比 */
   text-shadow:
-    0 2px 22px rgba(0, 0, 0, 0.72),
-    0 1px 4px rgba(0, 0, 0, 0.55);
+    0 0 3px rgba(0, 0, 0, 0.60),
+    0 2px 10px rgba(0, 0, 0, 0.62),
+    0 4px 32px rgba(0, 0, 0, 0.55);
 }
 
-/* 文字区的柔和暗底：兜住视频不同帧的亮度波动（书页大幅翻动时会突然变很亮） */
-.hero-content::before {
-  content: '';
-  position: absolute;
-  inset: -72px -96px;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 56% 50% at 50% 52%,
-    rgba(12, 8, 4, 0.58) 0%,
-    rgba(12, 8, 4, 0.34) 46%,
-    rgba(12, 8, 4, 0) 100%
-  );
-}
+/* 注：原先这里有一层「文字区柔和暗底」（radial-gradient + inset 矩形），
+   本意是兜住视频亮帧时白字的对比度。但渐变覆盖不到 inset 矩形的边缘，
+   于是露出清晰的直边 —— 视觉上就是「一层黑盖在名字周围」。
+   已移除，可读性改由三层文字阴影承担。 */
 
 /* 底部滚动指示：暗底上提亮 */
 #hero .hero-scroll-arrow {
@@ -538,7 +572,7 @@ button {
 
 /* ---------- Works Navigation ---------- */
 #works-nav {
-  background: var(--color-bg-alt);
+  background: var(--color-bg-alt-veil);
 }
 
 .works-header {
@@ -602,10 +636,84 @@ button {
   padding: var(--spacing-lg);
 }
 
+/* 摄影作品卡：一张淡淡的照片。
+   ⚠️ 注意这张照片背景是纯黑，而卡片底是米色 ——
+   任何「透明度叠加」都只能把黑背景变成灰（数学上：黑×(1-a) + 米色×a = 灰），
+   除非用反相（会毁掉人像的暖金色调）或换成亮调照片。
+   所以这里走「柔和淡影」的路线：降对比 + 轻微去饱和 + 低不透明度。
+   ⬇ opacity 是唯一的浓度旋钮。 */
 .works-card-main .works-card-img {
   flex: 1;
-  background: var(--color-placeholder);
   margin-bottom: var(--spacing-md);
+  background-image: url('../images/photography/摄影_01.jpg');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  filter: contrast(0.72) saturate(0.85);
+  opacity: 0.5;
+  transition: opacity var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.works-card-main:hover .works-card-img {
+  opacity: 0.65;
+  transform: scale(1.02);
+}
+
+/* 其余 4 张卡：各铺一层淡淡的照片，让版面有内容气息但不抢文字。
+   ⚠️ 用真实元素 + 显式 width/height —— 卡片是 flex 容器，
+   绝对定位的伪元素宽度会被算成 3px（这里踩过坑，别改成 ::before）。 */
+.works-card-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: contrast(0.72) saturate(0.85);
+  /* 比摄影卡低：这 4 张卡只有 157px 高，照片与文字重叠，
+     浓度过高会让背景灰度接近 tagline 字色（#64748B）导致文字消失。 */
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.works-card:hover .works-card-photo {
+  opacity: 0.44;
+  transform: scale(1.03);
+}
+
+/* 各卡底图：按气质挑照片 —— 作品本身 / 戏剧张力 / 诗意 / 文学气息 */
+.works-card-aivideo .works-card-photo {
+  background-image: url('../images/ai-anime-1-cover.jpg');
+  background-position: center 38%;
+}
+
+.works-card-scripts .works-card-photo {
+  background-image: url('../images/photography/摄影_11.jpg');
+}
+
+.works-card-poetry .works-card-photo {
+  background-image: url('../images/photography/摄影_14.jpg');
+  /* 诗歌卡是深色底：用 screen 混合，让照片亮部显现、暗部融进深底 */
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  filter: contrast(0.9) saturate(0.55);
+}
+
+.works-card-fiction .works-card-photo {
+  background-image: url('../images/photography/摄影_13.jpg');
+}
+
+/* 文字与装饰浮在照片之上 */
+.works-card-name,
+.works-card-accent,
+.works-card-tagline {
+  position: relative;
+  z-index: 1;
 }
 
 .works-card-secondary {
@@ -641,7 +749,7 @@ button {
 
 /* ---------- Photography Section ---------- */
 #photography {
-  background: var(--color-bg);
+  background: var(--color-bg-veil);
 }
 
 .photo-filters {
@@ -667,32 +775,30 @@ button {
   border-color: var(--color-accent);
 }
 
+/* 瀑布流画廊：按原始比例排布，不裁切照片。
+   图片高矮错落本身就是摄影作品集的设计语言。 */
 .photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-sm);
+  column-count: 3;
+  column-gap: var(--spacing-sm);
 }
 
 .photo-item {
   position: relative;
-  aspect-ratio: 4/3;
   background: var(--color-placeholder);
   overflow: hidden;
   cursor: pointer;
+  break-inside: avoid;
+  margin-bottom: var(--spacing-sm);
 }
 
-.photo-item.portrait {
-  aspect-ratio: 3/4;
-}
-
-.photo-item.wide {
-  aspect-ratio: 16/9;
-}
+/* 原 .portrait / .wide 的固定 aspect-ratio 已移除：
+   配合 object-fit: cover 会裁掉竖构图照片的大部分，
+   且在网格中造成同一行高度不齐、行间留空。 */
 
 .photo-item img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   transition: transform var(--duration-slow) var(--ease-out-expo);
 }
 
@@ -812,7 +918,7 @@ button {
 
 /* ---------- AI Video Section ---------- */
 #ai-video {
-  background: var(--color-bg);
+  background: var(--color-bg-veil);
 }
 
 .ai-video-intro {
@@ -977,7 +1083,7 @@ button {
 
 /* ---------- Scripts Section ---------- */
 #scripts {
-  background: var(--color-bg-alt);
+  background: var(--color-bg-alt-veil);
 }
 
 .scripts-layout {
@@ -1122,13 +1228,9 @@ button {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--color-bg-dark);
-  transition: background var(--duration-normal) var(--ease-in-out);
+  /* 与其他板块统一：浅色半透明底，让全站光晕透出来（原来这里是深色 + 深浅切换按钮） */
+  background: var(--color-bg-veil);
   position: relative;
-}
-
-[data-theme="dark"] #poetry {
-  background: var(--color-bg);
 }
 
 .poetry-container {
@@ -1158,10 +1260,8 @@ button {
   font-weight: 400;
   letter-spacing: 0.15em;
   margin-bottom: var(--spacing-lg);
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
-
-[data-theme="dark"] .poem-title { color: var(--color-text); }
 
 .poem-accent-dot {
   width: 6px;
@@ -1176,11 +1276,9 @@ button {
   font-size: var(--text-md);
   font-weight: 300;
   line-height: 2.6;
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-lg);
 }
-
-[data-theme="dark"] .poem-body { color: var(--color-text-secondary); }
 
 .poem-body p + p {
   margin-top: var(--spacing-xs);
@@ -1236,52 +1334,12 @@ button {
   color: var(--color-text-muted);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  position: absolute;
-  top: var(--spacing-lg);
-  right: var(--spacing-lg);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  z-index: 10;
-}
-
-.theme-toggle-label {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  letter-spacing: 0.1em;
-}
-
-.theme-toggle-switch {
-  width: 32px;
-  height: 16px;
-  background: var(--color-border-dark);
-  border-radius: 50px;
-  position: relative;
-  transition: background var(--duration-fast);
-}
-
-.theme-toggle-switch::after {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 10px;
-  height: 10px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  transition: transform var(--duration-fast) var(--ease-out-expo);
-}
-
-[data-theme="dark"] .theme-toggle-switch::after {
-  transform: translateX(16px);
-}
+/* 注：原先这里是诗歌板块的「浅 / 深」阅读模式切换按钮与配套样式，
+   已整体移除 —— 诗歌板块背景现在与其他板块统一为浅色半透明，不再需要切换。 */
 
 /* ---------- Fiction Section ---------- */
 #fiction {
-  background: var(--color-bg);
+  background: var(--color-bg-veil);
 }
 
 .fiction-grid {
@@ -1404,7 +1462,7 @@ button {
 
 /* ---------- Contact Section ---------- */
 #contact {
-  background: var(--color-bg-alt);
+  background: var(--color-bg-alt-veil);
 }
 
 .contact-grid {
@@ -1581,7 +1639,7 @@ button {
   }
 
   .photo-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
 }
 
@@ -1635,7 +1693,7 @@ button {
   }
 
   .photo-gallery {
-    grid-template-columns: 1fr;
+    column-count: 2;
   }
 
   .ai-video-grid {
