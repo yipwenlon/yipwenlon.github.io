@@ -31,7 +31,10 @@
         if (index < text.length) {
           loaderText.textContent += text[index];
           index++;
-          setTimeout(typeNext, 100 + Math.random() * 80);
+          // ⚠️ 这里的每一毫秒都是用户干等的成本。
+          // 原来是 100~180ms/字 + 300ms 起始 + 600ms 停留 ≈ 2 秒，首帧图被整块盖住，
+          // 观感上就是"网站加载很慢"。现在压到 ≈ 0.65 秒。
+          setTimeout(typeNext, 45 + Math.random() * 35);
         } else {
           setTimeout(() => {
             loader.classList.add('hidden');
@@ -39,12 +42,12 @@
             // After loader fades, reveal hero content
             setTimeout(() => {
               document.querySelector('.hero-content')?.classList.add('visible');
-            }, 400);
-          }, 600);
+            }, 180);
+          }, 200);
         }
       }
 
-      setTimeout(typeNext, 300);
+      setTimeout(typeNext, 120);
     }
   };
 

@@ -25,10 +25,23 @@
 
   <title>叶文龙 · 文案创作与内容编导作品集</title>
 
-  <!-- Fonts -->
+  <!-- Fonts
+       ⚠️ 这两行字体样式表原来是阻塞渲染的（普通 stylesheet），
+       字体服务器没回来之前整页是白屏，实测会把首屏拖到 3 秒以上。
+       改成 media="print" + onload 切回 all 的写法：不阻塞渲染，
+       先用字体栈里的系统字体画出来（macOS 上是苹方 / 宋体，观感接近），
+       字体到位后浏览器自动替换。 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- 注意：不要给首页视频加 <link rel="preload" as="video">。
+      视频走 Range 请求，和 preload 的普通请求对不上，实测会导致视频一直 readyState=0 播不出来。
+       靠 <video preload="auto"> 自己拉就够了。 -->
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -65,10 +78,12 @@
 
   <!-- ==================== 01 · Hero Section ==================== -->
   <section id="hero" class="section">
-    <!-- 背景视频：静音自动循环播放；poster 为加载期间的占位首帧 -->
+    <!-- 背景视频：静音自动循环播放。
+         首帧图不再走 poster 属性，而是内联在 #hero 的 CSS 背景里（零网络往返，进页面即见），
+         视频没数据时该层透明，露出下面的 CSS 背景；有数据后自然盖上。 -->
     <video class="hero-video" autoplay muted loop playsinline preload="auto"
-           poster="videos/hero-bg-poster.jpg" aria-hidden="true">
-      <source src="videos/hero-bg.mp4" type="video/mp4">
+           aria-hidden="true">
+      <source src="videos/hero-bg-v2.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -176,7 +191,7 @@
       <div id="photo-gallery" class="photo-gallery">
         <!-- 之间——人像系列 (8张：01-08) -->
         <div class="photo-item" data-series="portrait-between">
-          <img src="images/photography/摄影_01.jpg" width="3368" height="6000" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_01.jpg" width="3368" height="6000" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之一</p>
@@ -184,7 +199,7 @@
           </div>
         </div>
         <div class="photo-item portrait" data-series="portrait-between">
-          <img src="images/photography/摄影_02.jpg" width="3368" height="6000" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_02.jpg" width="3368" height="6000" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之二</p>
@@ -192,7 +207,7 @@
           </div>
         </div>
         <div class="photo-item" data-series="portrait-between">
-          <img src="images/photography/摄影_03.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_03.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之三</p>
@@ -200,7 +215,7 @@
           </div>
         </div>
         <div class="photo-item wide" data-series="portrait-between">
-          <img src="images/photography/摄影_04.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_04.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之四</p>
@@ -208,7 +223,7 @@
           </div>
         </div>
         <div class="photo-item portrait" data-series="portrait-between">
-          <img src="images/photography/摄影_05.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_05.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之五</p>
@@ -216,7 +231,7 @@
           </div>
         </div>
         <div class="photo-item" data-series="portrait-between">
-          <img src="images/photography/摄影_06.jpg" width="3368" height="6000" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_06.jpg" width="3368" height="6000" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之六</p>
@@ -224,7 +239,7 @@
           </div>
         </div>
         <div class="photo-item wide" data-series="portrait-between">
-          <img src="images/photography/摄影_07.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_07.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之七</p>
@@ -232,7 +247,7 @@
           </div>
         </div>
         <div class="photo-item portrait" data-series="portrait-between">
-          <img src="images/photography/摄影_08.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_08.jpg" width="6000" height="3368" alt="之间——人像" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #2a2a2a, #1a1a1a)';">
           <div class="photo-caption">
             <p class="photo-caption-title">之间——人像 之八</p>
@@ -242,7 +257,7 @@
 
         <!-- 城市切片——街拍系列 (8张：09-16) -->
         <div class="photo-item" data-series="city-slice">
-          <img src="images/photography/摄影_09.jpg" width="3648" height="5472" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_09.jpg" width="3648" height="5472" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之一</p>
@@ -250,7 +265,7 @@
           </div>
         </div>
         <div class="photo-item wide" data-series="city-slice">
-          <img src="images/photography/摄影_10.jpg" width="5472" height="3648" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_10.jpg" width="5472" height="3648" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之二</p>
@@ -258,7 +273,7 @@
           </div>
         </div>
         <div class="photo-item" data-series="city-slice">
-          <img src="images/photography/摄影_11.jpg" width="2164" height="3123" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_11.jpg" width="2164" height="3123" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之三</p>
@@ -266,7 +281,7 @@
           </div>
         </div>
         <div class="photo-item portrait" data-series="city-slice">
-          <img src="images/photography/摄影_12.jpg" width="5472" height="3648" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_12.jpg" width="5472" height="3648" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之四</p>
@@ -274,7 +289,7 @@
           </div>
         </div>
         <div class="photo-item wide" data-series="city-slice">
-          <img src="images/photography/摄影_13.jpg" width="5472" height="3648" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_13.jpg" width="5472" height="3648" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之五</p>
@@ -282,7 +297,7 @@
           </div>
         </div>
         <div class="photo-item" data-series="city-slice">
-          <img src="images/photography/摄影_14.jpg" width="1280" height="854" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_14.jpg" width="1280" height="854" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之六</p>
@@ -290,7 +305,7 @@
           </div>
         </div>
         <div class="photo-item portrait" data-series="city-slice">
-          <img src="images/photography/摄影_15.jpg" width="6783" height="4912" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_15.jpg" width="6783" height="4912" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之七</p>
@@ -298,7 +313,7 @@
           </div>
         </div>
         <div class="photo-item" data-series="city-slice">
-          <img src="images/photography/摄影_16.jpg" width="7360" height="4912" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_16.jpg" width="7360" height="4912" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之八</p>
@@ -306,7 +321,7 @@
           </div>
         </div>
         <div class="photo-item wide" data-series="city-slice">
-          <img src="images/photography/摄影_17.jpg" width="1438" height="960" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_17.jpg" width="1438" height="960" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之九</p>
@@ -314,7 +329,7 @@
           </div>
         </div>
         <div class="photo-item portrait" data-series="city-slice">
-          <img src="images/photography/摄影_18.jpg" width="1920" height="2880" alt="城市切片——街拍" loading="lazy"
+          <img fetchpriority="low" src="images/photography/摄影_18.jpg" width="1920" height="2880" alt="城市切片——街拍" loading="lazy"
                onerror="this.parentElement.style.background='linear-gradient(135deg, #3a3020, #2a2010)';">
           <div class="photo-caption">
             <p class="photo-caption-title">城市切片 之十</p>
@@ -346,7 +361,7 @@
       <div id="ai-video-grid" class="ai-video-grid">
         <article class="ai-video-card reveal" data-src="videos/ai-anime-1.mp4" data-poster="images/ai-anime-1-cover.jpg">
           <div class="ai-video-thumb">
-            <img src="images/ai-anime-1-cover.jpg" width="1280" height="720" alt="纯粹打戏 封面" loading="lazy">
+            <img fetchpriority="low" src="images/ai-anime-1-cover.jpg" width="1280" height="720" alt="纯粹打戏 封面" loading="lazy">
             <span class="ai-video-play" aria-hidden="true"></span>
           </div>
           <h3 class="ai-video-title">纯粹打戏</h3>
@@ -873,7 +888,7 @@
           <a href="assets/resume.pdf" class="btn-resume" target="_blank" download>下载简历</a>
 
           <div class="contact-qr">
-            <img src="images/wechat-qr.png" width="820" height="1216" alt="微信二维码"
+            <img loading="lazy" fetchpriority="low" src="images/wechat-qr.png" width="820" height="1216" alt="微信二维码"
                  onerror="this.style.display='none'; this.nextElementSibling.textContent='（请替换为你的微信二维码）';">
             <p class="contact-qr-text">扫码添加微信</p>
           </div>
