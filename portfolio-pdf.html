@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>叶文龙 · 作品集</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+:root {
+  --ink: #171717;
+  --ink2: #404040;
+  --muted: #64748B;
+  --faint: #9CA3AF;
+  --accent: #A16207;
+  --bg: #FAFAF8;
+  --line: #E5E5E5;
+  --line2: #EFEEEC;
+  --serif: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+  --sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); color: var(--ink); background: #D9D7D3; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+
+.page {
+  width: 210mm; height: 297mm; background: var(--bg);
+  margin: 0 auto 8mm; position: relative; overflow: hidden;
+  padding: 18mm 0 16mm;
+  display: flex; flex-direction: column;
+}
+@media print { body { background: #fff; } .page { margin: 0; page-break-after: always; } .page:last-child { page-break-after: auto; } }
+@media screen { .page { box-shadow: 0 1px 8px rgba(0,0,0,.14); } }
+
+.pad { padding-left: 18mm; padding-right: 18mm; }
+.page > * { flex-shrink: 0; }
+.page > .pad:last-child { margin-top: auto; }
+
+/* ---------- 页眉 / 页脚 ---------- */
+.ph {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--sans); font-size: 6.5pt; font-weight: 400;
+  color: var(--muted); letter-spacing: .2em; padding-bottom: 3mm;
+  border-bottom: .3mm solid var(--line);
+}
+.ph .r { color: var(--faint); letter-spacing: .32em; }
+.pf {
+  position: relative;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--sans); font-size: 6.5pt; color: var(--faint);
+  letter-spacing: .16em; padding-top: 4mm; border-top: .3mm solid var(--line2);
+  margin-top: auto;
+}
+/* 页脚页码 */
+.pf .pf-back { color: inherit; text-decoration: none; letter-spacing: .16em; }
+.pf .pf-back:hover { color: var(--accent); }
+
+/* ---------- 01 封面 ---------- */
+.cv-top {
+  position: absolute; top: 15mm; left: 18mm; right: 18mm;
+  display: flex; justify-content: space-between;
+  font-family: var(--sans); font-size: 6.5pt; color: var(--muted); letter-spacing: .26em;
+}
+.cv-photo { position: absolute; top: 26.7mm; left: 0; width: 210mm; height: 147mm; overflow: hidden; }
+.cv-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+.cv-body { position: absolute; top: 179.5mm; left: 18mm; right: 18mm; }
+.cv-rule { width: 100%; height: .55mm; background: var(--accent); }
+.cv-slogan { margin-top: 6mm; font-size: 23pt; font-weight: 400; letter-spacing: .02em; line-height: 1.45; }
+.cv-namerow { display: flex; justify-content: space-between; align-items: baseline; margin-top: 5.5mm; }
+.cv-name { font-size: 13pt; letter-spacing: .3em; }
+.cv-role { font-family: var(--sans); font-size: 7pt; color: var(--muted); letter-spacing: .1em; }
+.cv-hr { height: .25mm; background: var(--line); margin-top: 4mm; }
+.cv-counts { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14mm; margin-top: 3.5mm; }
+.cc-k { font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .26em; margin-bottom: 2mm; }
+.cc-r { display: flex; justify-content: space-between; align-items: baseline; font-size: 8.5pt; letter-spacing: .08em; line-height: 1.9; color: var(--ink2); }
+.cc-r b { font-weight: 400; }
+
+/* ---------- 通用：可点击的行动入口 ----------
+   封面网址 / B 站影片 / 小说全文，全书共用同一套视觉语言：
+   小字标签 + 赭石色大一号的动作词 + 箭头。 */
+.cta { display: flex; align-items: baseline; gap: 4.5mm; text-decoration: none; }
+.cta .k { font-family: var(--sans); font-size: 6pt; font-weight: 400; color: var(--faint); letter-spacing: .26em; }
+.cta .v { font-family: var(--sans); font-size: 11.5pt; font-weight: 500; color: var(--accent); letter-spacing: .05em; }
+.cta .a { font-family: var(--sans); font-size: 9pt; color: var(--accent); }
+.cta.line { border-top: .25mm solid var(--line); padding-top: 4mm; }
+.cta.sm .v { font-size: 9.5pt; }
+
+/* 封底底部：在线作品集作为可点击入口单独一行，用赭石色 + 大一号字体把它从联系方式里拉出来 */
+.cv-foot { position: absolute; bottom: 16mm; left: 18mm; right: 18mm; }
+.cv-cta { margin-bottom: 5mm; }
+.cv-contact {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--sans); font-size: 7.5pt; color: var(--ink2); letter-spacing: .06em;
+}
+.cv-contact .it { display: flex; align-items: baseline; gap: 2.5mm; }
+.cv-contact .k { font-size: 6pt; color: var(--faint); letter-spacing: .2em; }
+/* 正文里出现的链接：不换色不画线，保持原排版，但 PDF 里可点 */
+.cv-contact a, .bc-v a { color: inherit; text-decoration: none; }
+
+/* ---------- 02 目录 ---------- */
+.toc-title-box { margin-top: 14mm; }
+.toc-kicker { font-family: var(--sans); font-size: 6.5pt; color: var(--muted); letter-spacing: .34em; }
+.toc-h1 { font-size: 19pt; font-weight: 400; letter-spacing: .14em; margin-top: 3mm; }
+.toc-rule { width: 24mm; height: .55mm; background: var(--accent); margin-top: 5mm; }
+.toc-list { margin-top: 11mm; display: flex; flex-direction: column; gap: 5.5mm; flex: 1; padding-bottom: 2mm; }
+.toc-item {
+  display: flex; align-items: center; gap: 7mm;
+  text-decoration: none; color: inherit;   /* 作为 <a> 时保持原视觉 */
+  position: relative;
+  padding: 4.4mm 0;
+  flex: 0 0 auto;
+  cursor: pointer;                          /* 屏幕上提示可点 */
+}
+/* 悬停反馈放在所有 .toc-* 定义之后，避免被原始规则覆盖（CSS 层叠） */
+/* 条目之间的分隔线：通栏细线（不做卡片底，保持纸面感） */
+.toc-item + .toc-item::before {
+  content: ''; position: absolute; top: -2.75mm; left: 0; right: 0;
+  height: .25mm; background: var(--line2);
+}
+.toc-numbox {
+  width: 16mm; height: 16mm; flex-shrink: 0;
+  background: #F4F2EE;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 17pt; font-weight: 400;
+  color: var(--accent); letter-spacing: 0; line-height: 1;
+}
+.toc-txt { flex: 1; min-width: 0; }
+.toc-nm { font-size: 12pt; letter-spacing: .18em; line-height: 1.6; }
+.toc-en { font-family: var(--sans); font-size: 6pt; color: var(--faint); letter-spacing: .26em; margin-top: 1mm; }
+.toc-desc { font-size: 8pt; color: var(--muted); letter-spacing: .02em; margin-top: 1.6mm; line-height: 1.7; }
+.toc-right { text-align: right; flex-shrink: 0; }
+.toc-cnt { font-size: 9.5pt; letter-spacing: .08em; }
+.toc-pg { font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .16em; margin-top: 1mm; }
+
+/* 目录条目悬停反馈（放最后，避免被上面原始定义覆盖）：
+   序号框翻成赭石底反白字，标题/说明/页码一并转赭石色，左侧浮出强调色竖条。
+   纯屏幕交互，不影响 PDF 输出。 */
+.toc-numbox { transition: background .16s, color .16s; }
+.toc-nm, .toc-en, .toc-desc, .toc-cnt, .toc-pg { transition: color .16s; }
+.toc-item::after {
+  content: ''; position: absolute; left: -6mm; top: 4.4mm; bottom: 4.4mm;
+  width: .8mm; background: var(--accent);
+  opacity: 0; transition: opacity .16s;
+}
+.toc-item:hover::after { opacity: 1; }
+.toc-item:hover .toc-numbox { background: var(--accent); color: #FBF9F4; }
+.toc-item:hover .toc-nm,
+.toc-item:hover .toc-en,
+.toc-item:hover .toc-desc,
+.toc-item:hover .toc-cnt,
+.toc-item:hover .toc-pg { color: var(--accent); }
+
+/* ---------- 章节扉页 ---------- */
+.op-no { font-size: 44pt; color: var(--accent); font-weight: 400; line-height: 1; letter-spacing: .02em; }
+.op-zh { font-size: 22pt; font-weight: 400; letter-spacing: .34em; margin-top: 6.5mm; }
+.op-en { font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .36em; margin-top: 2.5mm; }
+.op-rule { width: 30mm; height: .5mm; background: var(--accent); margin-top: 6mm; }
+.op-meta { font-family: var(--sans); font-size: 7.5pt; color: var(--muted); letter-spacing: .14em; margin-top: 6mm; }
+.op-intro { font-size: 10.5pt; font-weight: 300; line-height: 2.1; letter-spacing: .04em; color: var(--ink2); margin-top: 4.5mm; }
+.op-hero { margin-top: 8mm; overflow: hidden; }
+.op-hero img { width: 100%; display: block; }
+.op-cap { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .18em; margin-top: 2.5mm; }
+
+/* 扉页上的「高清大图见网站」入口 */
+.op-link {
+  display: flex; align-items: baseline; gap: 4mm;
+  margin-top: 4.5mm; padding: 2.8mm 4mm;
+  background: #F7F5F1; border-left: .6mm solid var(--accent);
+  text-decoration: none;
+}
+.op-link .k { font-family: var(--sans); font-size: 5.4pt; color: var(--faint); letter-spacing: .22em; flex-shrink: 0; }
+.op-link .v { font-size: 8.8pt; font-weight: 300; color: var(--ink2); letter-spacing: .05em; flex: 1; }
+.op-link .a { font-family: var(--sans); font-size: 6.4pt; color: var(--accent); letter-spacing: .05em; flex-shrink: 0; }
+
+/* 章节扉页上的作品索引 */
+.idx { margin-top: 12mm; }
+.idx-item { padding: 6.5mm 0; border-bottom: .25mm solid var(--line2); }
+.idx-item:first-child { border-top: .25mm solid var(--line2); }
+.idx-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8mm; }
+.idx-t { font-size: 16pt; font-weight: 400; letter-spacing: .12em; flex-shrink: 0; }
+.idx-m { font-family: var(--sans); font-size: 6.8pt; color: var(--muted); letter-spacing: .08em; text-align: right; }
+.idx-q {
+  font-size: 9.6pt; font-weight: 300; line-height: 1.9; color: var(--ink2);
+  letter-spacing: .03em; margin-top: 3.5mm; padding-left: 5mm;
+  border-left: .6mm solid rgba(161,98,7,.3);
+}
+
+/* ---------- 图片网格（保比例） ---------- */
+.masonry { display: flex; gap: 3mm; align-items: flex-start; }
+.masonry .col { flex: 1; display: flex; flex-direction: column; gap: 3mm; min-width: 0; }.masonry img { width: 100%; display: block; }
+.row3 { display: flex; gap: 4mm; }
+.row3 > div { flex: 1; min-width: 0; }
+.row3 img { width: 100%; display: block; }
+.row2 { display: flex; gap: 5mm; }
+.row2 > div { flex: 1; min-width: 0; }
+.row2 img { width: 100%; display: block; }
+/* 单排四栏：装得下 4 张 16:9 缩略图，省掉一整行高度（影像章节用） */
+.row4 { display: flex; gap: 4mm; }
+.row4 > div { flex: 1; min-width: 0; }
+.row4 img { width: 100%; display: block; }
+/* 两图并排（大图用）：1:1，间距 6mm，图片按比例自适应 */
+.duo { display: flex; gap: 6mm; align-items: flex-start; }
+.duo > div { flex: 1; min-width: 0; }
+.duo img { width: 100%; display: block; }
+/* duo 右半幅放引言（与左侧竖图底部对齐） */
+.duo-quote {
+  display: flex; align-items: flex-end;
+  padding-bottom: 1mm;
+  font-size: 9.5pt; font-weight: 300; line-height: 2.05; color: var(--muted);
+  letter-spacing: .04em;
+}
+/* duo 右半幅：引言 + 下方图柱（图片按原始比例，与左侧竖图自然等高） */
+.duo-right { display: flex; flex-direction: column; }
+.duo-rq {
+  font-size: 9.5pt; font-weight: 300; line-height: 2.05; color: var(--muted);
+  letter-spacing: .04em; margin-bottom: 5mm; flex-shrink: 0;
+}
+.duo-rq .qm { color: var(--accent); }
+.duo-rgrid {
+  display: grid; grid-template-columns: 1fr; gap: 4mm;
+}
+.duo-rgrid > div { min-width: 0; }
+.duo-rgrid img { width: 100%; display: block; }
+
+/* duo 撑满整页剩余高度（本页最后一块图用）：居垂直居中放，避免上下留空 */
+.duo.fill { flex: 1; min-height: 0; align-items: center; }
+.duo.fill .duo-l { min-height: 0; }
+.duo.fill .duo-l img { width: 100%; display: block; }
+
+/* 小标题行 */
+.subhead {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-top: 7mm;
+}
+.subhead .t { font-size: 12pt; letter-spacing: .24em; }
+.subhead .n { font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .2em; }
+.pull {
+  margin-top: auto; padding-top: 6mm;
+  font-size: 9.5pt; font-weight: 300; line-height: 2.05; color: var(--muted);
+  letter-spacing: .04em;
+}
+.pull .qm { color: var(--accent); }
+
+/* ---------- 通用：文本页的尺度锚点 ---------- */
+.blk-k { font-family: var(--sans); font-size: 6.5pt; color: var(--accent); letter-spacing: .3em; margin-top: 6.5mm; }
+/* 章节内的作品子类小标题（AI 影像 / 混剪）：赭石小字 + 一条细线，用来在一章里分层 */
+.sub-k { font-family: var(--sans); font-size: 7.5pt; font-weight: 500; color: var(--accent); letter-spacing: .3em; padding-bottom: 3mm; border-bottom: .25mm solid var(--line); }
+.display { font-size: 32pt; font-weight: 400; letter-spacing: .1em; line-height: 1.32; }
+.drule { width: 42mm; height: 1mm; background: var(--accent); margin-top: 6mm; }
+.tint { background: #F2EFE7; padding: 6.5mm 7mm; }
+.tint .blk-k { margin-top: 0; }
+.note { font-size: 8.9pt; font-weight: 300; line-height: 2.05; color: var(--ink2); letter-spacing: .02em; }
+
+/* ---------- 03 剧本 ---------- */
+.sp-meta { font-family: var(--sans); font-size: 7pt; color: var(--muted); letter-spacing: .12em; }
+.sp-en { font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .34em; margin-top: 3mm; }
+.sp-syn { font-size: 9.8pt; font-weight: 300; line-height: 2.05; color: var(--ink2); margin-top: 3mm; letter-spacing: .02em; }
+.scr { margin-top: 4.5mm; }
+.scr-row { display: grid; grid-template-columns: 23mm 1fr; gap: 6mm; margin-bottom: 3.4mm; }
+.scr-row.dir { display: block; }
+.scr-who { font-family: var(--sans); font-size: 7pt; color: var(--accent); letter-spacing: .16em; padding-top: 1.5mm; text-align: right; line-height: 1.7; }
+.scr-say { font-size: 9.8pt; font-weight: 300; line-height: 1.95; color: var(--ink); letter-spacing: .02em; }
+.scr-dir { font-family: var(--sans); font-size: 7pt; color: var(--faint); line-height: 1.9; letter-spacing: .04em; padding-left: 29mm; }
+
+/* ---------- 04 诗歌 ---------- */
+.poems { display: flex; gap: 0; margin-top: 6mm; align-items: flex-start; }
+.poem { flex: 1; min-width: 0; padding: 0 9mm; }
+.poem:first-child { padding-left: 0; }
+.poem:last-child { padding-right: 0; }
+.poem + .poem { border-left: .25mm solid var(--line); }
+.poem-no { font-family: var(--sans); font-size: 7pt; color: var(--accent); letter-spacing: .24em; margin-bottom: 3mm; }
+.poem-h { font-size: 15pt; font-weight: 400; letter-spacing: .16em; line-height: 1.5; }
+.poem-r { width: 16mm; height: .5mm; background: var(--accent); margin: 4mm 0 5mm; }
+.poem-l { font-size: 10pt; font-weight: 300; line-height: 2.05; color: var(--ink2); letter-spacing: .04em; }
+.poem-l .sp { display: block; height: 3.4mm; }
+.poem-l .hl { color: var(--accent); }
+.poem-m { font-family: var(--sans); font-size: 6pt; color: var(--faint); letter-spacing: .16em; margin-top: 4.5mm; }
+.poems.long .poem { padding: 0 4.5mm; }
+
+/* ---------- 05 小说 ---------- */
+.fic { display: flex; gap: 0; margin-top: 9mm; align-items: flex-start; }
+.fic-side { width: 40mm; flex-shrink: 0; padding-right: 9mm; border-right: .25mm solid var(--line2); }
+.fic-no { font-size: 38pt; color: var(--accent); font-weight: 400; line-height: 1; }
+.fic-hr { width: 100%; height: .3mm; background: var(--line2); margin: 5mm 0; }
+.fic-k { font-family: var(--sans); font-size: 6pt; color: var(--faint); letter-spacing: .22em; margin-bottom: 1.2mm; }
+.fic-v { font-size: 8.5pt; color: var(--ink2); letter-spacing: .04em; line-height: 1.9; margin-bottom: 4.5mm; }
+.fic-main { flex: 1; min-width: 0; padding-left: 10mm; }
+.fic-title { font-size: 22pt; font-weight: 400; letter-spacing: .1em; }
+.fic-quotes { margin-top: 6.5mm; }
+.fic-q {
+  font-size: 10.6pt; font-weight: 300; line-height: 2.0; color: var(--ink);
+  letter-spacing: .03em; margin-bottom: 3.6mm; padding-left: 6mm;
+  border-left: .8mm solid rgba(161,98,7,.32);
+}
+.fic-div { height: .25mm; background: var(--line2); margin: 5mm 0; }
+.fic-syn { font-size: 9.3pt; font-weight: 300; line-height: 2.0; color: var(--muted); letter-spacing: .02em; }
+.fic-ex { font-size: 10pt; font-weight: 300; line-height: 1.97; color: var(--ink2); letter-spacing: .03em; margin-top: 3mm; }
+
+/* ---------- 封底 ---------- */
+/* 主次：四行「自己的话」是主角（18pt 正黑），《丑奴儿》退成题引（11.5pt 灰）。
+   整块（题引 → 四行 → 短线 → 联系方式）作为一个整体垂直居中，
+   内部间距收紧到 13mm，把空白让给页面上下缘——空白留在页边是呼吸，留在块内是断气。 */
+.bc-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.bc-ci-wrap { display: inline-block; align-self: flex-start; }  /* flex 列会拉伸子项，必须 flex-start 才收窄到词的宽度 */
+.bc-ci { font-size: 11.5pt; font-weight: 300; color: var(--muted); letter-spacing: .08em; line-height: 1.95; }
+.bc-ci .ind { margin-left: 2.2em; }   /* 两字缩进 = 词牌的四字句 */
+.bc-cite { font-family: var(--sans); font-size: 7pt; color: var(--faint); letter-spacing: .14em; margin-top: 4mm; text-align: right; }
+.bc-creed { font-size: 15pt; font-weight: 300; color: var(--ink); letter-spacing: .04em; line-height: 1.9; margin-top: 13mm; }
+.bc-rule { width: 28mm; height: .5mm; background: var(--accent); margin: 13mm 0 8mm; }
+.bc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 12mm; }
+.bc-k { font-family: var(--sans); font-size: 6pt; color: var(--faint); letter-spacing: .24em; margin-bottom: 1.5mm; }
+.bc-v { font-family: var(--sans); font-size: 8pt; color: var(--ink2); letter-spacing: .06em; }
+.bc-foot { position: absolute; bottom: 16mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-family: var(--sans); font-size: 6.5pt; color: var(--faint); letter-spacing: .2em; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ 01 · 封面 -->
+<div class="page">
+  <div class="cv-top">
+    <span>作 品 集 &nbsp;/&nbsp; PORTFOLIO</span>
+    <span>2 0 2 6</span>
+  </div>
+
+  <div class="cv-photo">
+    <img src="images/photography/摄影_15.jpg" alt="">
+  </div>
+
+  <div class="cv-body">
+    <div class="cv-rule"></div>
+    <h1 class="cv-slogan">以文字为根，<br>以影像为翼。</h1>
+    <div class="cv-namerow">
+      <span class="cv-name">叶文龙</span>
+      <span class="cv-role">编剧 / 摄影师 / 内容创作者</span>
+    </div>
+    <div class="cv-hr"></div>
+    <div class="cv-counts">
+      <div>
+        <div class="cc-k">文 字</div>
+        <div class="cc-r"><span>剧本</span><b>2 部</b></div>
+        <div class="cc-r"><span>诗歌</span><b>5 首</b></div>
+        <div class="cc-r"><span>小说</span><b>3 篇</b></div>
+      </div>
+      <div>
+        <div class="cc-k">影 像</div>
+        <div class="cc-r"><span>摄影</span><b>18 张</b></div>
+        <div class="cc-r"><span>影像作品</span><b>2 部</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部：在线作品集单独提出来做成可点击入口。
+       PDF 里 must 用真实 <a href> 才会生成链接注解（Chrome 打印时会转成 link annotation）。
+       用绝对 URL，别用相对路径。 -->
+  <div class="cv-foot">
+    <a class="cta line cv-cta" href="https://yipwenlon.github.io" target="_blank" rel="noopener">
+      <span class="k">在 线 作 品 集</span>
+      <span class="v">yipwenlon.github.io</span>
+      <span class="a">↗</span>
+    </a>
+    <div class="cv-contact">
+      <span class="it"><span class="k">电话</span>186-8809-3570</span>
+      <span class="it"><span class="k">邮箱</span><a href="mailto:18688093570@163.com">18688093570@163.com</a></span>
+      <span class="it"><span class="k">微信</span>yipwenlon</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ 02 · 目录 -->
+<div class="page" id="toc">
+  <div class="pad"><div class="ph"><span>目 录</span><span class="r">CONTENTS</span></div></div>
+
+  <div class="pad toc-title-box">
+    <p class="toc-kicker">五 个 部 分</p>
+    <h1 class="toc-h1">作品目录</h1>
+    <div class="toc-rule"></div>
+  </div>
+
+  <div class="pad toc-list">
+    <a class="toc-item" href="#ch-photo">
+      <div class="toc-numbox">01</div>
+      <div class="toc-txt">
+        <div class="toc-nm">摄 影</div>
+        <div class="toc-en">PHOTOGRAPHY</div>
+        <p class="toc-desc">「之间」：人与人之间未说出口的距离。「城市切片」：城市里被忽略的瞬间</p>
+      </div>
+      <div class="toc-right">
+        <div class="toc-cnt">18 张</div>
+        <div class="toc-pg">P.03</div>
+      </div>
+    </a>
+
+    <a class="toc-item" href="#ch-ai">
+      <div class="toc-numbox">02</div>
+      <div class="toc-txt">
+        <div class="toc-nm">影 像</div>
+        <div class="toc-en">MOTION</div>
+        <p class="toc-desc">AI 影像与影视混剪 —— 前者逐镜生成，后者重剪电影史里的镜头</p>
+      </div>
+      <div class="toc-right">
+        <div class="toc-cnt">2 部</div>
+        <div class="toc-pg">P.08</div>
+      </div>
+    </a>
+
+    <a class="toc-item" href="#ch-script">
+      <div class="toc-numbox">03</div>
+      <div class="toc-txt">
+        <div class="toc-nm">剧 本</div>
+        <div class="toc-en">SCREENPLAY</div>
+        <p class="toc-desc">《容忍与自由》《开市》—— 以冲突为镜，照见人心</p>
+      </div>
+      <div class="toc-right">
+        <div class="toc-cnt">2 部</div>
+        <div class="toc-pg">P.09</div>
+      </div>
+    </a>
+
+    <a class="toc-item" href="#ch-poem">
+      <div class="toc-numbox">04</div>
+      <div class="toc-txt">
+        <div class="toc-nm">诗 歌</div>
+        <div class="toc-en">POETRY</div>
+        <p class="toc-desc">以韵律为舟，渡情绪之河</p>
+      </div>
+      <div class="toc-right">
+        <div class="toc-cnt">5 首</div>
+        <div class="toc-pg">P.12</div>
+      </div>
+    </a>
+
+    <a class="toc-item" href="#ch-fiction">
+      <div class="toc-numbox">05</div>
+      <div class="toc-txt">
+        <div class="toc-nm">短篇小说</div>
+        <div class="toc-en">FICTION</div>
+        <p class="toc-desc">以虚构之刀，解剖真实</p>
+      </div>
+      <div class="toc-right">
+        <div class="toc-cnt">3 篇</div>
+        <div class="toc-pg">P.15</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>共 29 件作品 &nbsp;·&nbsp; 2022 — 2026</span><span>02</span></div></div>
+</div>
+
+<!-- ============================================================ 03 · 摄影 扉页 -->
+<div class="page" id="ch-photo">
+  <div class="pad"><div class="ph"><span>01 / 摄影</span><span class="r">PHOTOGRAPHY</span></div></div>
+
+  <div class="pad" style="margin-top:11mm">
+    <div class="op-no">01</div>
+    <div class="op-zh">摄 影</div>
+    <div class="op-en">P H O T O G R A P H Y</div>
+    <div class="op-rule"></div>
+    <div class="op-meta">18 张 &nbsp;·&nbsp; 人像与街拍 &nbsp;·&nbsp; 2024 — 2026</div>
+    <p class="op-intro">「之间」对准的是人和人之间那段没说出口的距离，「城市切片」收集的是城市里被忽略的瞬间。两个系列拍到最后会发现，我拍的从来不是风景，是它们说话的方式。</p>
+    <a class="op-link" href="https://yipwenlon.github.io/#photography" target="_blank" rel="noopener">
+      <span class="k">H D &nbsp; S E R I E S</span>
+      <span class="v">完整系列 · 高清大图 · 可点击放大</span>
+      <span class="a">yipwenlon.github.io &#8599;</span>
+    </a>
+  </div>
+
+  <div class="pad op-hero" style="margin-top:4mm">
+    <img src="images/photography/摄影_15.jpg" alt="">
+    <div class="op-cap"><span>城市切片 · 街拍</span><span>6783 × 4912</span></div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>01 / 摄 影</span><a class="pf-back" href="#toc"><span>03</span></a></div></div>
+</div>
+
+<!-- ============================================================ 04 · 之间（人像）I -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>01 / 摄影</span><span class="r">PHOTOGRAPHY</span></div></div>
+
+  <div class="pad subhead"><span class="t">之 间 · 人 像</span><span class="n">1 / 2 &nbsp;·&nbsp; 2024 — 2026</span></div>
+
+  <div class="pad duo" style="margin-top:7mm">
+    <div><img src="images/photography/摄影_01.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_02.jpg" alt=""></div>
+  </div>
+
+  <div class="pad duo" style="margin-top:5mm">
+    <div><img src="images/photography/摄影_03.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_04.jpg" alt=""></div>
+  </div>
+
+  <div class="pad pull"><span class="qm">「</span>镜头是第三种目光。在快门落下之前，我们曾对视过。<span class="qm">」</span></div>
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>01 / 摄 影</span><a class="pf-back" href="#toc"><span>04</span></a></div></div>
+</div>
+
+<!-- ============================================================ 05 · 之间（人像）II -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>01 / 摄影</span><span class="r">PHOTOGRAPHY</span></div></div>
+
+  <div class="pad subhead"><span class="t">之 间 · 人 像</span><span class="n">2 / 2 &nbsp;·&nbsp; 2024 — 2026</span></div>
+
+  <div class="pad duo fill" style="margin-top:7mm">
+    <div class="duo-l"><img src="images/photography/摄影_06.jpg" alt=""></div>
+    <div class="duo-right">
+      <div class="duo-rq"><span class="qm">「</span>镜头是第三种目光。在快门落下之前，我们曾对视过。<span class="qm">」</span></div>
+      <div class="duo-rgrid">
+        <div><img src="images/photography/摄影_05.jpg" alt=""></div>
+        <div><img src="images/photography/摄影_07.jpg" alt=""></div>
+        <div><img src="images/photography/摄影_08.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>01 / 摄 影</span><a class="pf-back" href="#toc"><span>05</span></a></div></div>
+</div>
+
+<!-- ============================================================ 06 · 城市切片 I -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>01 / 摄影</span><span class="r">PHOTOGRAPHY</span></div></div>
+
+  <div class="pad subhead"><span class="t">城 市 切 片 · 一</span><span class="n">4 张 &nbsp;· 2025 — 2026</span></div>
+
+  <div class="pad" style="margin-top:6mm">
+    <img src="images/photography/摄影_16.jpg" alt="" style="width:100%;display:block;">
+    <div class="op-cap"><span>城市切片 · 街拍</span><span>7360 × 4912</span></div>
+  </div>
+
+  <div class="pad row3" style="margin-top:6mm">
+    <div><img src="images/photography/摄影_10.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_12.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_13.jpg" alt=""></div>
+  </div>
+
+  <div class="pad pull"><span class="qm">「</span>街角的光，是这个城市最诚实的语言。<span class="qm">」</span></div>
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>01 / 摄 影</span><a class="pf-back" href="#toc"><span>06</span></a></div></div>
+</div>
+
+<!-- ============================================================ 07 · 城市切片 II -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>01 / 摄影</span><span class="r">PHOTOGRAPHY</span></div></div>
+
+  <div class="pad subhead"><span class="t">城 市 切 片 · 二</span><span class="n">5 张 &nbsp;· 2025 — 2026</span></div>
+
+  <div class="pad row3" style="margin-top:7mm">
+    <div><img src="images/photography/摄影_09.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_11.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_18.jpg" alt=""></div>
+  </div>
+
+  <div class="pad duo" style="margin-top:6mm">
+    <div><img src="images/photography/摄影_14.jpg" alt=""></div>
+    <div><img src="images/photography/摄影_17.jpg" alt=""></div>
+  </div>
+
+  <div class="pad pull"><span class="qm">「</span>城市从不说话，但它记得每一个路过的人。<span class="qm">」</span></div>
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>01 / 摄 影</span><a class="pf-back" href="#toc"><span>07</span></a></div></div>
+</div>
+
+<!-- ============================================================ 07 · 影像 -->
+<div class="page" id="ch-ai">
+  <div class="pad"><div class="ph"><span>02 / 影像</span><span class="r">MOTION</span></div></div>
+
+  <div class="pad" style="margin-top:30mm">
+    <div class="op-no">02</div>
+    <div class="op-zh">影 像</div>
+    <div class="op-en">M O T I O N</div>
+    <div class="op-rule"></div>
+    <div class="op-meta">2 部 &nbsp;·&nbsp; AI 漫剧 1 分 09 秒 &nbsp;·&nbsp; 混剪 26 秒 &nbsp;·&nbsp; 2026</div>
+    <p class="op-intro">两类影像：一类用 AI 影像工具从零生成，逐镜把控分镜与动作节奏；一类把电影史里的镜头重新剪成一段叙事。前者造画面，后者读画面。</p>
+  </div>
+
+  <div class="pad" style="margin-top:9mm">
+    <div class="sub-k">AI 影像 &nbsp;·&nbsp; A I &nbsp; M O T I O N</div>
+  </div>
+
+  <div class="pad row4" style="margin-top:5mm">
+    <div><img src="images/ai-anime-1-cover.jpg" alt="" style="width:100%;display:block;"></div>
+    <div><img src="../.workbuddy/pdf-assets/frames/f12.jpg" alt="" style="width:100%;display:block;"></div>
+    <div><img src="../.workbuddy/pdf-assets/frames/f24.jpg" alt="" style="width:100%;display:block;"></div>
+    <div><img src="../.workbuddy/pdf-assets/frames/f60.jpg" alt="" style="width:100%;display:block;"></div>
+  </div>
+
+  <div class="pad" style="margin-top:6mm; display:flex; gap:11mm;">
+    <div style="flex:1.15">
+      <div class="blk-k" style="margin-top:0">作 品 说 明 ·《纯粹打戏》</div>
+      <p class="note" style="margin-top:2.5mm; line-height:1.85">《纯粹打戏》是一段带日语对白的 2D 动画短片：混凝土废墟里的两个人，靠动作节奏、镜头切换与打击特效把 69 秒撑满。全片用 AI 影像工具逐镜生成，我在其中负责剧本、分镜、镜头运动设计与剪辑节奏——把「打起来」这件事，拆成可执行的动作分解和时间节点，也沉淀出一套可复用的打斗提示词 skill。</p>
+    </div>
+    <div style="flex:.85">
+      <div class="blk-k" style="margin-top:0">制 作 流 程</div>
+      <p class="note" style="margin-top:2.5mm; line-height:1.85">剧本 → 分镜 → 角色参考图 → 逐镜生成 → 剪辑与声音。核心难点是动作的「力」：起势、发力、受力、收招，四段必须逐帧写清，否则画面再快也只是比划。</p>
+    </div>
+  </div>
+
+  <div class="pad" style="margin-top:4.5mm">
+    <a class="cta line" href="https://www.bilibili.com/video/BV1L5aE6tEEs/" target="_blank" rel="noopener">
+      <span class="k">B V 1 L 5 a E 6 t E E s</span>
+      <span class="v">在 B 站观看完整影片</span>
+      <span class="a">↗</span>
+    </a>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>02 / 影 像</span><a class="pf-back" href="#toc"><span>08</span></a></div></div>
+</div>
+
+<!-- ============================================================ 07b · 影像 · 混剪 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>02 / 影像</span><span class="r">MONTAGE</span></div></div>
+
+  <div class="pad" style="margin-top:11mm">
+    <div class="sub-k">混 剪 &nbsp;·&nbsp; M O N T A G E</div>
+  </div>
+
+  <div class="pad" style="margin-top:5mm">
+    <img src="images/montage-time-cover.jpg" alt="" style="width:100%;display:block;">
+  </div>
+
+  <div class="pad row2" style="margin-top:4mm">
+    <div><img src="../.workbuddy/pdf-assets/mt300.jpg" alt="" style="width:100%;display:block;"></div>
+    <div><img src="../.workbuddy/pdf-assets/mt600.jpg" alt="" style="width:100%;display:block;"></div>
+  </div>
+
+  <div class="pad" style="margin-top:8mm; display:flex; gap:11mm;">
+    <div style="flex:1">
+      <div class="blk-k" style="margin-top:0">作 品 说 明</div>
+      <p class="note" style="margin-top:3mm">《我想生活在一个普通人也被尊重的社会》是我为同名影评视频制作的开篇段落。把《小武》《天注定》《三峡好人》《风流一代》等贾樟柯作品里最具重量的瞬间重新排序，让画面自己讲出「一个时代」——不靠旁白，只靠镜头的并置与交替。全片剪辑、调色、节奏与画面处理由我独立完成，26 秒、横屏 16:9。</p>
+    </div>
+    <div style="flex:1">
+      <div class="blk-k" style="margin-top:0">剪 辑 思 路</div>
+      <p class="note" style="margin-top:3mm">选片标准不是「名场面」，而是「有身体感的人」：扛着包赶车的、站在废墟阳台上的、在街上举着身份证的。几部片子相隔二十余年，但镜头里的困境几乎可以互换——这种可互换性，就是混剪要讲的东西。</p>
+    </div>
+  </div>
+
+  <div class="pad" style="margin-top:6mm">
+    <a class="cta line" href="https://www.bilibili.com/video/BV1E9p76zEA2/" target="_blank" rel="noopener">
+      <span class="k">B V 1 E 9 p 7 6 z E A 2</span>
+      <span class="v">在 B 站观看影评视频</span>
+      <span class="a">↗</span>
+    </a>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>02 / 影 像</span><a class="pf-back" href="#toc"><span>09</span></a></div></div>
+</div>
+
+<!-- ============================================================ 08 · 03 剧本 · 章节扉页 -->
+<div class="page" id="ch-script">
+  <div class="pad"><div class="ph"><span>03 / 剧本</span><span class="r">SCREENPLAY</span></div></div>
+
+  <div class="pad" style="margin-top:13mm">
+    <div class="op-no">03</div>
+    <div class="op-zh">剧 本</div>
+    <div class="op-en">S C R E E N P L A Y</div>
+    <div class="op-rule"></div>
+    <div class="op-meta">2 部 &nbsp;·&nbsp; 2025 — 2026 &nbsp;·&nbsp; 编剧 / 导演</div>
+    <p class="op-intro">被平台规则卡住的快递员，等不到「开市」的两个店主。处境完全不同，撞上的却是同一面墙——当规则不由你定，人还能剩下什么。</p>
+  </div>
+
+  <div class="pad idx">
+    <div class="idx-item">
+      <div class="idx-head">
+        <span class="idx-t">《容忍与自由》</span>
+        <span class="idx-m">约 4000 字 &nbsp;·&nbsp; 编剧 / 导演 &nbsp;·&nbsp; 2025.12 &nbsp;·&nbsp; 校园戏剧展演铜奖</span>
+      </div>
+      <p class="idx-q">「不管时间允不允许，规矩就是规矩。」</p>
+    </div>
+    <div class="idx-item">
+      <div class="idx-head">
+        <span class="idx-t">《开市》</span>
+        <span class="idx-m">约 4500 字 &nbsp;·&nbsp; 编剧 &nbsp;·&nbsp; 2026.03</span>
+      </div>
+      <p class="idx-q">「不需要问，你们想多久都想不明白。」</p>
+    </div>
+  </div>
+
+  <div class="pad pull"><span class="qm">「</span>如果我们都是这个系统的一部分，「容忍」到底是谁的自由？<span class="qm">」</span></div>
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>03 / 剧 本</span><a class="pf-back" href="#toc"><span>09</span></a></div></div>
+</div>
+
+<!-- ============================================================ 09 · 剧本《容忍与自由》 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>03 / 剧本</span><span class="r">SCREENPLAY</span></div></div>
+
+  <div class="pad" style="margin-top:11mm">
+    <h2 class="display" style="font-size:26pt">容忍与自由</h2>
+    <div class="drule"></div>
+    <div class="sp-meta" style="margin-top:6mm">剧本 &nbsp;·&nbsp; 约 4000 字 &nbsp;·&nbsp; 编剧 / 导演 &nbsp;·&nbsp; 2025.12 &nbsp;·&nbsp; 校园戏剧展演铜奖</div>
+    <div class="sp-en" style="margin-top:2.5mm">T O L E R A N C E &nbsp; &amp; &nbsp; F R E E D O M</div>
+  </div>
+
+  <div class="pad" style="margin-top:7mm">
+    <div class="tint">
+      <div class="blk-k">故 事 梗 概</div>
+      <p class="sp-syn">快递员小文因一次换货失误被客户钻了空子，价值近两千的快递退不回去，公司要把损失算在他账上。多次上门追讨无果，一次对峙中他关掉客户家的水阀逼其现身——沉默里，他从快递袋中抽出一把刀。剧本以快递行业年业务量突破 1500 亿件的新闻播报开场，用冰冷的数字对照一个被系统碾碎的尊严。</p>
+    </div>
+  </div>
+
+  <div class="pad" style="margin-top:7.5mm">
+    <div class="blk-k" style="margin-top:0">经 典 对 白</div>
+    <p class="scr-dir" style="margin-top:2.5mm">场景：逼仄的出租屋里，小文边听电视新闻边吃泡面。电话响起。</p>
+    <div class="scr">
+      <div class="scr-row dir">
+        <div class="scr-dir">（电话铃声：叮铃……叮铃……小文不接。再次响起，小文不情愿地接了。）</div>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">公司领导<br>老 杨</div>
+        <p class="scr-say">喂，小文，打你这么多个电话都不接，干什么去了？昨天那个换错货的快递退回去没有啊？</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">快递员<br>小 文</div>
+        <p class="scr-say">老杨，不好意思啊，刚刚在洗澡，没听见。那个快递我昨天又打了好几个电话都不接，去到他们家门口，一盏灯都看不到。</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">老 杨</div>
+        <p class="scr-say">那明天就再去，打不通就一直打，货不管怎样都要退回去，里面的东西可不便宜，快两千了，退不回去，算你账上啊？</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">小 文</div>
+        <p class="scr-say">老杨，你也不是不知道，一天这么多货，一时我也看不过来，时间也不允许，快递收多一单就多一单钱嘛。</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">老 杨</div>
+        <p class="scr-say">行行行，别说这么多，不管时间允不允许，规矩就是规矩，如果商家那边不收货，明天这个货退不回去，就算你账上了，知道不。</p>
+      </div>
+      <div class="scr-row dir">
+        <div class="scr-dir">（嘟……电话挂断。小文继续吃泡面。电话再次响起。是妈妈。）</div>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">妈 妈</div>
+        <p class="scr-say">还有一件事我不敢和你说，你弟弟，他去卖血了。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad" style="margin-top:6mm">
+    <a class="cta line sm" href="https://yipwenlon.github.io/assets/screenplay-1.pdf" target="_blank" rel="noopener">
+      <span class="k">全 文 P D F</span>
+      <span class="v">阅读剧本全文</span>
+      <span class="a">&#8599;</span>
+    </a>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>03 / 剧 本</span><a class="pf-back" href="#toc"><span>10</span></a></div></div>
+</div>
+
+<!-- ============================================================ 09 · 剧本《开市》 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>03 / 剧本</span><span class="r">SCREENPLAY</span></div></div>
+
+  <div class="pad" style="margin-top:11mm">
+    <h2 class="display" style="font-size:26pt">开市</h2>
+    <div class="drule"></div>
+    <div class="sp-meta" style="margin-top:6mm">剧本 &nbsp;·&nbsp; 约 4500 字 &nbsp;·&nbsp; 编剧 &nbsp;·&nbsp; 2026.03</div>
+    <div class="sp-en" style="margin-top:2.5mm">O P E N I N G &nbsp; H O U R S</div>
+  </div>
+
+  <div class="pad" style="margin-top:7mm">
+    <div class="tint">
+      <div class="blk-k">故 事 梗 概</div>
+      <p class="sp-syn">凌晨，镇上一条偏僻小路，两个落魄男人合伙开了一间只卖薯片的小卖部，从无一人光临。圆圆嗜睡，角角焦虑，两人在等待「开市」的漫长时间里迎来两位顾客：要买「一模一样」钻戒的夸夸小姐，和要「定格」他们时间的摄影师拍拍。最终薯片被扔光，小卖部被「买走」，他们只换来一张「最有意义的照片」——天亮之前，依然没有收入。</p>
+    </div>
+  </div>
+
+  <div class="pad" style="margin-top:7mm">
+    <div class="blk-k" style="margin-top:0">经 典 对 白</div>
+    <div class="scr">
+      <div class="scr-row dir">
+        <div class="scr-dir">（夸夸小姐把戴满了钻戒的手放在台面上，圆圆和角角立即被吸引住，左右盯着看。）</div>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">夸 夸</div>
+        <p class="scr-say">我要一模一样的钻戒。</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">圆 圆</div>
+        <p class="scr-say">你当时为什么不买齐呢？</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">夸 夸</div>
+        <p class="scr-say">不需要问，你们想多久都想不明白。</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">圆 圆</div>
+        <p class="scr-say">你这戒指真好看。可是为什么有六根手指？</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">角 角</div>
+        <p class="scr-say">你瞎了吗？看清楚，明明是四根。</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">夸 夸</div>
+        <p class="scr-say">（生气，又把手往前伸了伸）再看清楚一些。</p>
+      </div>
+      <div class="scr-row">
+        <div class="scr-who">圆 圆</div>
+        <p class="scr-say">一……二……三……四……五……六。（停顿，擦擦眼睛）六根，就是六根！难道我近视了？</p>
+      </div>
+    </div>
+
+    <div class="blk-k">创 作 手 记</div>
+    <p class="note" style="margin-top:3mm">灵感来自贝克特的《等待戈多》：如果戈多不是一个人，而是一种「开市」的状态呢？「圆」是闭合与循环，「角」是尖锐与焦虑——他们被困在同一个凌晨、同一种商品、同一种等待里。</p>
+  </div>
+
+  <div class="pad" style="margin-top:6mm">
+    <a class="cta line sm" href="https://yipwenlon.github.io/assets/screenplay-2.pdf" target="_blank" rel="noopener">
+      <span class="k">全 文 P D F</span>
+      <span class="v">阅读剧本全文</span>
+      <span class="a">&#8599;</span>
+    </a>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>03 / 剧 本</span><a class="pf-back" href="#toc"><span>11</span></a></div></div>
+</div>
+
+<!-- ============================================================ 10 · 诗歌 I -->
+<div class="page" id="ch-poem">
+  <div class="pad"><div class="ph"><span>04 / 诗歌</span><span class="r">POETRY</span></div></div>
+
+  <div class="pad" style="margin-top:10mm">
+    <div class="op-no">04</div>
+    <div class="op-zh">诗 歌</div>
+    <div class="op-en">P O E T R Y</div>
+    <div class="op-rule"></div>
+    <div class="op-meta">5 首 &nbsp;·&nbsp; 2022 — 2025</div>
+    <p class="op-intro">写诗是我处理「说不清楚的东西」的方式。它们大多来自具体的场景——一片墓地、一间电子厂、一条毕业前的榕树道。</p>
+  </div>
+
+  <div class="pad poems">
+    <div class="poem">
+      <div class="poem-no">0 1</div>
+      <h3 class="poem-h">父 辈</h3>
+      <div class="poem-r"></div>
+      <p class="poem-l">我凝望着远山上的那片墓地<br>墓地之下，几条小径通幽<br>那里隐藏着我们的足迹<br>我们曾手牵手漫步<span class="sp"></span>摆啊摆，摆啊摆，我们徜徉<br>在腾腾的大雾中迷失了方向<br>雾中隐约浮现出一片园林<br>园林上空，一缕炊烟轻轻飘散<span class="sp"></span>这炊烟，来自遥远的百年前<br>来自那座古老的砖瓦房<br>砖瓦房内，柴火熊熊燃烧<br><span class="hl">熏黑了白昼，也熏黑了夜晚</span><span class="sp"></span>你们带来丰盛的食物与美酒<br>我们也携来食物，斟满酒杯</p>
+      <p class="poem-m">创作于清明 &nbsp;·&nbsp; 入选中国诗歌网</p>
+    </div>
+
+    <div class="poem">
+      <div class="poem-no">0 2</div>
+      <h3 class="poem-h">临 近 毕 业 前</h3>
+      <div class="poem-r"></div>
+      <p class="poem-l">一排排榕树<br>凌乱的脚步踩在<br>往人的迷茫上<br>干瘪，云淡淡<br>纸蝴蝶，坚定<br>围着繁茂的四叶草<br>一旁，被啃啮过的蚀叶<br>施工的粉尘<br>黄昏打旋的车轮<br><span class="hl">我骑到海中去</span></p>
+      <p class="poem-m">2025 &nbsp;·&nbsp; 东莞理工学院</p>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>04 / 诗 歌</span><a class="pf-back" href="#toc"><span>12</span></a></div></div>
+</div>
+
+<!-- ============================================================ 11 · 诗歌 II -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>04 / 诗歌</span><span class="r">POETRY</span></div></div>
+
+  <div class="pad subhead"><span class="t" style="font-size:16pt; letter-spacing:.2em">二 首 &nbsp;·&nbsp; 关于时代与囚牢</span><span class="n" style="letter-spacing:.24em">0 3 &nbsp;—&nbsp; 0 4</span></div>
+
+  <div class="pad poems" style="margin-top:7mm">
+    <div class="poem">
+      <div class="poem-no">0 3</div>
+      <h3 class="poem-h">理 信 时 代</h3>
+      <div class="poem-r"></div>
+      <p class="poem-l">假钞自他们口中一张张印制而出<br>却无贪婪之态<br>那变幻莫测的数额<br>起源于一个谎言<br>它就像烂木板上的一枚未钉牢的斜钉<br>经受一锤又一锤<br>即便歪了也无人理会<br>我陷入沉思——<span class="sp"></span>我与这陌生的时代，正逐渐分裂<br>我们在数字的长河中<br>化作一段被遗忘的往事<br>一端是极端的迷信<br><span class="hl">而我们——<br>正迈向另一个极端</span></p>
+      <p class="poem-m">2024</p>
+    </div>
+
+    <div class="poem">
+      <div class="poem-no">0 4</div>
+      <h3 class="poem-h">历 史 的 囚 牢</h3>
+      <div class="poem-r"></div>
+      <p class="poem-l">说书人抒情的哑嗓<br>是被历史饕餮啃食过的残章<br>他的骨灰布满每一处孤独的暗角<br>心脏在故事的风暴中疯狂跳荡<span class="sp"></span>杨贵妃遗落的玉簪<br>是奏响哀歌的回魂曲<br>王朝的噩梦预示着大厦将倾<br>心脏在序曲的酝酿中慌乱摇晃<span class="sp"></span>博尔赫斯惊惶的一念<br>是沙之书隐没的错乱时空<br>他短暂的一生闪烁着无限的智慧<br>心脏在时空的漩涡中挣扎安睡<span class="sp"></span>啊！监狱的猴子们<br>你们满眼绝望，你们向天祈求<br>你们逃不出去，你们等吧等吧<br>盘古劈开的<br>——正是监狱无形的铁墙<br>而女娲的彩石<br><span class="hl">——补上的却是逃向自由的希望</span></p>
+      <p class="poem-m">2024 &nbsp;·&nbsp; 献给博尔赫斯</p>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>04 / 诗 歌</span><a class="pf-back" href="#toc"><span>13</span></a></div></div>
+</div>
+
+<!-- ============================================================ 12 · 诗歌 III 长诗 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>04 / 诗歌</span><span class="r">POETRY</span></div></div>
+
+  <div class="pad" style="margin-top:9mm">
+    <div class="poem-no">0 5</div>
+    <h3 class="poem-h" style="font-size:16pt; letter-spacing:.1em; line-height:1.55">某年某月某日在一家电子厂内<br>听一位可爱的女人倾诉</h3>
+    <div class="poem-m" style="margin-top:3.5mm">意识流叙事长诗 &nbsp;·&nbsp; 全诗四节</div>
+  </div>
+
+  <div class="pad poems long" style="margin-top:9mm">
+    <div class="poem">
+      <p class="poem-l" style="font-size:9.5pt; letter-spacing:0">她在无人监管的空隙同我搭话，<br>一位可爱的女人，似乎被人遗忘在但丁的地狱。<br>脸上初生时的皱纹一定如少女的乳头般粉红，<br>如今却如泥土一般，发烂发黑发黄，<br>散发一股劣质香水味。<span class="sp"></span>她畅谈科学与迷信的交叉经历，<br>畅谈与儿子在乡下的麦田里如何淫荡却无一点震惊，<br>畅谈斧子与麦子的制作过程。<br>突然！那臃肿的右手在空中拉出一条长长的直线，<br>另一只手奋力地在直线上砍砍砍，<br>嘴里歪斜颤抖地大叫——<br>「大米！大米！从那端哗哗哗哗地流出来了！」<br>不间断的大笑同时发生，疯了，疯了，<br><span class="hl">一切的结果竟是为了买几个人的休息。</span><span class="sp"></span>她又一本正经地分析一个公平的机制，<br>总有人要出头争论——工位的固化是不可理喻的。<br>管理者的毫无建树使产量根本上不去，<br>为此她再次提出惊人的见解——<br>那些来自八十年代至今，<br>近乎四十年的「前沿经验」。<br>不久她仍未意识到，<br>手里良莠不齐的电子器件分类是徒劳的，<br>她欺骗了在场的所有人。</p>
+    </div>
+
+    <div class="poem">
+      <p class="poem-l" style="font-size:9.5pt; letter-spacing:0">最终她决定要召集那些精神残废的人，<br>特别是包装工位的人，甚至所有人，<br>用仓库报废的元器件——大约有五六吨重，<br>在某个晚上狠狠砸向老板。<br>第二天她吹着富有年代感的口哨走上二楼的工作区，<br>继续忍受无数机器反复吟唱的魔鬼般的轰隆声，<br>某种悲哀的物质在蚕食脑细胞，<br>拉扯她三层厚厚的大衣和她的皮，<br>她的肉，她的脑神经。<br>她的血汩汩地顺着电流流到整个电子厂的所有机器，<br><span class="hl">给我停机！停机！停机！</span></p>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>04 / 诗 歌</span><a class="pf-back" href="#toc"><span>14</span></a></div></div>
+</div>
+
+<!-- ============================================================ 14 · 05 短篇小说 · 章节扉页 -->
+<div class="page" id="ch-fiction">
+  <div class="pad"><div class="ph"><span>05 / 短篇小说</span><span class="r">FICTION</span></div></div>
+
+  <div class="pad" style="margin-top:13mm">
+    <div class="op-no">05</div>
+    <div class="op-zh">短篇小说</div>
+    <div class="op-en">F I C T I O N</div>
+    <div class="op-rule"></div>
+    <div class="op-meta">3 篇 &nbsp;·&nbsp; 2024 — 2025 &nbsp;·&nbsp; 共约 7700 字</div>
+    <p class="op-intro">三篇小说，写被时间追赶的人、被权力攥住的人、被自己反复复制的人。虚构成了我解剖真实的那把刀。</p>
+  </div>
+
+  <div class="pad idx">
+    <div class="idx-item">
+      <div class="idx-head">
+        <span class="idx-t">《送别仪式》</span>
+        <span class="idx-m">约 3000 字 &nbsp;·&nbsp; 广东省大学生写作大赛 一等奖 &nbsp;·&nbsp; 2024</span>
+      </div>
+      <p class="idx-q">「宇宙存在着巨大的寂静，在我们之前。」</p>
+    </div>
+    <div class="idx-item">
+      <div class="idx-head">
+        <span class="idx-t">《名额》</span>
+        <span class="idx-m">约 2000 字 &nbsp;·&nbsp; 廉洁征文比赛 二等奖 &nbsp;·&nbsp; 2024</span>
+      </div>
+      <p class="idx-q">「下一个到谁了，下周六再约过来，还有十九个呢。」</p>
+    </div>
+    <div class="idx-item">
+      <div class="idx-head">
+        <span class="idx-t">《怪得了谁》</span>
+        <span class="idx-m">约 2700 字 &nbsp;·&nbsp; 荒诞 / 循环叙事 &nbsp;·&nbsp; 2025</span>
+      </div>
+      <p class="idx-q">「他明白上车后，世界的规则已由不得他掌控，他能做的只有一件事，就是相信司机。」</p>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>05 / 短 篇 小 说</span><a class="pf-back" href="#toc"><span>15</span></a></div></div>
+</div>
+
+<!-- ============================================================ 15 · 小说《送别仪式》 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>05 / 短篇小说</span><span class="r">FICTION</span></div></div>
+
+  <div class="pad fic">
+    <aside class="fic-side">
+      <div class="fic-no">01</div>
+      <div class="fic-hr"></div>
+      <div class="fic-k">文 体</div>
+      <div class="fic-v">短篇小说<br>约 3000 字</div>
+      <div class="fic-k">奖 项</div>
+      <div class="fic-v">广东省大学生<br>写作大赛 一等奖</div>
+      <div class="fic-k">年 份</div>
+      <div class="fic-v">2024</div>
+    </aside>
+
+    <div class="fic-main">
+      <h2 class="fic-title">《送别仪式》</h2>
+      <div class="fic-quotes">
+        <p class="fic-q">「好像从机械的轰鸣声中能窥见世界背后的真理。」</p>
+        <p class="fic-q">「手指每叩击一次四角桌，求神者就得为亲人的命运缴纳费用，否则神灵将保持缄默。」</p>
+        <p class="fic-q">「宇宙存在着巨大的寂静，在我们之前。」</p>
+      </div>
+      <div class="fic-div"></div>
+      <p class="fic-syn">叙述者在回乡奔丧的列车上陷入一场漫长的梦境。梦中，祖父的钥匙、带锁的木盒、符箓与求神仪式，同车厢里老妇人的咒语、白发老人的预言、席卷而来的黑烟与烈火相互撕扯。火葬的场景与列车燃烧的画面不断叠化，死亡的灼热与记忆的灰烬混为一体。最终，一声餐车叫卖将他惊醒——烈日依旧，邻座空无，唯有座位底下一枚生锈的钥匙，模糊了梦境与现实的边界。</p>
+
+      <div class="blk-k">原 文 摘 录</div>
+      <div class="tint" style="margin-top:4mm">
+        <p class="fic-ex" style="margin-top:0">列车刚启动，车厢里仍是一片嘈杂，我匆忙找到 01 车厢过道的位置坐下，耳边划过一串钥匙的脆响，只瞥见那人模糊的身影。左侧窗边的老妇人自上车后就歪头倚着窗，双手紧攥一个带锁的木盒，露出半边苍白的侧脸，不知为何让我心生亲近。她无视车外变幻的景色，只是闭上眼睛，专注地倾听轨道的震动，感知车轮滚动的韵律，好像从机械的轰鸣声中能窥见世界背后的真理。<br><br>喧闹声被困意冲淡，随即我也闭上眼，似乎遗忘了此行的目的。车厢仿佛被浓烟熏了几个世纪。一束寂寥的光线轻轻抚过它的表面，不远处，小河静静流淌，澄澈的天空浮着几朵闲云，我在衰败的郊区发现了这节废弃的车厢。踏进第一步，黑尘就四散而起，檀香与胡椒粉的气味萦绕不散，座位和扶手都烧成了不规则的胶状，我不慎划伤了手臂，渗出血来，下意识从地上抓起一撮香灰往伤口敷撒。</p>
+      </div>
+
+      <a class="cta line sm" style="margin-top:5mm"
+         href="https://yipwenlon.github.io/assets/novel-1.pdf" target="_blank" rel="noopener">
+        <span class="k">全 文 P D F</span>
+        <span class="v">阅读全文</span>
+        <span class="a">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>05 / 短 篇 小 说</span><a class="pf-back" href="#toc"><span>16</span></a></div></div>
+</div>
+
+<!-- ============================================================ 14 · 小说《名额》 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>05 / 短篇小说</span><span class="r">FICTION</span></div></div>
+
+  <div class="pad fic">
+    <aside class="fic-side">
+      <div class="fic-no">02</div>
+      <div class="fic-hr"></div>
+      <div class="fic-k">文 体</div>
+      <div class="fic-v">短篇小说<br>约 2000 字</div>
+      <div class="fic-k">奖 项</div>
+      <div class="fic-v">廉洁征文比赛<br>二等奖</div>
+      <div class="fic-k">年 份</div>
+      <div class="fic-v">2024</div>
+    </aside>
+
+    <div class="fic-main">
+      <h2 class="fic-title">《名额》</h2>
+      <div class="fic-quotes">
+        <p class="fic-q">「即使一天辛勤的劳作已让她身心俱疲，但听到女儿这几句亲切的叫唤……万分疲倦都随着太阳落到西边去了。」</p>
+        <p class="fic-q">「她明白这是大城市，她一个乡下人无论如何羞耻的恳求，都不会得到任何人的同情和怜悯，甚至还会受到讥诮和藐视。」</p>
+        <p class="fic-q">「下一个到谁了，下周六再约过来，还有十九个呢。」</p>
+      </div>
+      <div class="fic-div"></div>
+      <p class="fic-syn">一位被卖作童养媳、又被丈夫抛弃的农村单身母亲，十二年如一日在田间与杂活中挣扎，只为把女儿送进城里最好的中学。当女儿终于以优异成绩夺得那珍贵的入学名额时，校方却以「不招农村学生」为由，向她索要各种「费用」。在权力与金钱的合谋面前，母亲屈辱地接受了勒索。而她离开后，两位负责人长吁一口气——「下一个到谁了，下周六再约过来，还有十九个呢。」</p>
+
+      <div class="blk-k">原 文 摘 录</div>
+      <div class="tint" style="margin-top:4mm">
+        <p class="fic-ex" style="margin-top:0">她一直生活在农村破旧的一间红砖旧瓦房里，在孩子两岁多时，母女俩就被那酒鬼父亲无情抛弃了。清早，趁着日出前便起身，套上一件被日光晒得东一块、西一块泛起白团的浅蓝色布衣，一条简陋的黑破大筒裤，穿上昨日沾满泥土的水鞋，即下地忙活，农闲之时，还会去附近的人家干些家务活，额外赚点辛苦钱供女儿上学。<br><br>最让她感到欣慰的，便是落日时分，女儿在远处传来「阿妈，阿妈，我回来了」的呼喊声。即使一天辛勤的劳作已让她身心俱疲，但听到女儿这几句亲切的叫唤，望着她蹦蹦跳跳跑回来的身影和嬉笑稚嫩的脸庞，万分疲倦都随着太阳落到西边去了。</p>
+      </div>
+
+      <a class="cta line sm" style="margin-top:5mm"
+         href="https://yipwenlon.github.io/assets/novel-3.pdf" target="_blank" rel="noopener">
+        <span class="k">全 文 P D F</span>
+        <span class="v">阅读全文</span>
+        <span class="a">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>05 / 短 篇 小 说</span><a class="pf-back" href="#toc"><span>17</span></a></div></div>
+</div>
+
+<!-- ============================================================ 15 · 小说《怪得了谁》 -->
+<div class="page">
+  <div class="pad"><div class="ph"><span>05 / 短篇小说</span><span class="r">FICTION</span></div></div>
+
+  <div class="pad fic">
+    <aside class="fic-side">
+      <div class="fic-no">03</div>
+      <div class="fic-hr"></div>
+      <div class="fic-k">文 体</div>
+      <div class="fic-v">短篇小说<br>约 2700 字</div>
+      <div class="fic-k">风 格</div>
+      <div class="fic-v">荒诞 &nbsp;/&nbsp; 循环<br>叙事</div>
+      <div class="fic-k">年 份</div>
+      <div class="fic-v">2025</div>
+    </aside>
+
+    <div class="fic-main">
+      <h2 class="fic-title">《怪得了谁》</h2>
+      <div class="fic-quotes">
+        <p class="fic-q">「对他来说清晨很宝贵，于是睡前他决定让黎明的太阳独自照耀。」</p>
+        <p class="fic-q">「他像个凶手，反复在同一处寻找落人把柄的证据，他不喜欢这样，但总是情不自禁。」</p>
+        <p class="fic-q">「他明白上车后，世界的规则已由不得他掌控，他能做的只有一件事，就是相信司机。」</p>
+      </div>
+      <div class="fic-div"></div>
+      <p class="fic-syn">放假前的最后一天，一名大学生被整理行李、流鼻血、腰伤、洗衣事故等琐事拖入混乱的泥潭。时间一点点被焦虑啃噬，他最终催促快车司机违规逆行赶火车，却引发车祸。就在他急于逃离时，发现另一个「自己」正在车祸现场焦灼地催促，而所有围观者都穿着与他一模一样的衣服——绣着大蜗牛的白色长袖。小说以荒诞的循环结局，呈现现代人被时间暴力与自我复制所围困的处境。</p>
+
+      <div class="blk-k">原 文 摘 录</div>
+      <div class="tint" style="margin-top:4mm">
+        <p class="fic-ex" style="margin-top:0">春节假前，在校的最后一天，寒冬的睡意总缠着他，身体变得异常沉重，脸上显得疲惫。对他来说清晨很宝贵，于是睡前他决定让黎明的太阳独自照耀，但噩梦般的鸟叫声与飞机声使他担惊受怕，翻来覆去，睡得并不安稳。他穿了一件绣着大蜗牛的白色长袖和一条亚麻色针织长裤，外套一件蓝色套头衫。三个舍友都在昨天告别了，房间里空荡荡的，墙壁摸起来冰冰的。<br><br>回到寝室，刚坐下腰就开始痛，发出一阵咔咔声，他意识到昨天打球有个混蛋故意推了他一把，把腰扭了，以至于整理东西时嘴上不停念叨那两个小混蛋。全都乱糟糟的，但他丝毫不慌张，他一直都是这样，距离火车发车还有整整五个小时。</p>
+      </div>
+
+      <a class="cta line sm" style="margin-top:5mm"
+         href="https://yipwenlon.github.io/assets/novel-2.pdf" target="_blank" rel="noopener">
+        <span class="k">全 文 P D F</span>
+        <span class="v">阅读全文</span>
+        <span class="a">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="pad"><div class="pf"><span>叶文龙 · 作品集</span><span>05 / 短 篇 小 说</span><a class="pf-back" href="#toc"><span>18</span></a></div></div>
+</div>
+
+<!-- ============================================================ 16 · 封底
+     排版思路（2026-10-04 按用户意见定稿）：
+       主次 —— 四行「自己的话」是主角（18pt 正黑，一句一行），
+               《丑奴儿》退成题引（11.5pt 灰），保留 7-4-4-7 的四字句缩进当点缀。
+       间距 —— 题引 → 四行 → 金线 → 联系方式，整块作为一体垂直居中，
+               内部间距收到 13mm。空白留在页边是呼吸，留在块内就是断气。 -->
+<div class="page">
+  <div class="pad bc-hero">
+    <div class="bc-ci-wrap">
+      <p class="bc-ci">少年不识愁滋味，<br><span class="ind">爱上层楼。</span><br><span class="ind">爱上层楼，</span><br>为赋新词强说愁。</p>
+      <p class="bc-cite">—— 辛弃疾《丑奴儿 · 书博山道中壁》</p>
+    </div>
+
+    <p class="bc-creed">相信每一个字都有重量，每一帧画面都有温度。<br>希望用文字为品牌找到它最灵魂的声音。<br>谢谢你翻到这里。<br>如果这些作品让你想起了什么，欢迎随时找我聊聊。</p>
+
+    <div class="bc-rule"></div>
+    <div class="bc-grid">
+      <div>
+        <div class="bc-k">姓 名</div>
+        <div class="bc-v">叶文龙 &nbsp;/&nbsp; yipwenlon</div>
+      </div>
+      <div>
+        <div class="bc-k">电 话</div>
+        <div class="bc-v">186-8809-3570</div>
+      </div>
+      <div>
+        <div class="bc-k">邮 箱</div>
+        <div class="bc-v"><a href="mailto:18688093570@163.com">18688093570@163.com</a></div>
+      </div>
+      <div>
+        <div class="bc-k">作 品 集</div>
+        <div class="bc-v"><a href="https://yipwenlon.github.io" target="_blank" rel="noopener">yipwenlon.github.io</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bc-foot">
+    <span>叶文龙 · 作品集</span>
+    <span>2 0 2 6</span>
+  </div>
+</div>
+
+<script>
+/* 排版自检（仅在 ?debug 时输出，不影响打印） */
+if (location.search.indexOf('debug') >= 0) {
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var out = [];
+      document.querySelectorAll('.page').forEach(function (p, i) {
+        var pr = p.getBoundingClientRect();
+        var maxB = 0, who = '';
+        [].forEach.call(p.children, function (c) {
+          var r = c.getBoundingClientRect();
+          if (r.bottom > maxB) { maxB = r.bottom; who = c.className || c.tagName; }
+        });
+        out.push('P' + (i + 1) + ' h=' + Math.round(pr.height) + ' 内容底部=' +
+          Math.round(maxB - pr.top) + ' 余量=' + Math.round(pr.height - (maxB - pr.top)) + ' [' + who + ']');
+      });
+      var d = document.createElement('pre');
+      d.id = 'DBGOUT';
+      d.textContent = out.join('\n');
+      document.body.appendChild(d);
+    }, 400);
+  });
+}
+</script>
+</body>
+</html>

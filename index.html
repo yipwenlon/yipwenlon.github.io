@@ -64,7 +64,7 @@
       <li><a href="#about">关于</a></li>
       <li><a href="#works-nav">作品</a></li>
       <li><a href="#photography">摄影</a></li>
-      <li><a href="#ai-video">AI 影像</a></li>
+      <li><a href="#ai-video">影像</a></li>
       <li><a href="#scripts">剧本</a></li>
       <li><a href="#poetry">诗歌</a></li>
       <li><a href="#fiction">小说</a></li>
@@ -139,12 +139,12 @@
           <p class="works-card-tagline">光影为笔，定格人间</p>
         </a>
 
-        <!-- AI 影像 -->
+        <!-- 影像（AI 影像 + 混剪） -->
         <a href="#ai-video" class="works-card works-card-secondary works-card-aivideo reveal reveal-delay-1" style="background:#EBEFF4;">
           <span class="works-card-photo" aria-hidden="true"></span>
-          <span class="works-card-name">AI 影像</span>
+          <span class="works-card-name">影 像</span>
           <div class="works-card-accent"></div>
-          <p class="works-card-tagline">以算法为笔，让想象动起来</p>
+          <p class="works-card-tagline">以算法为笔，以镜头说话</p>
         </a>
 
         <!-- 剧本 -->
@@ -351,12 +351,19 @@
     </div>
   </section>
 
-  <!-- ==================== 05 · AI Video Section ==================== -->
+  <!-- ==================== 05 · Motion Section (AI 影像 + 混剪) ==================== -->
   <section id="ai-video" class="section">
     <div class="section-inner">
-      <span class="section-label reveal">AI 影像</span>
-      <h2 class="section-title reveal">让想象动起来</h2>
-      <p class="ai-video-intro reveal">用 AI 影像工具完成的漫剧与短片。从分镜、动作节奏到镜头运动逐镜把控，把文字脚本变成会动的画面。</p>
+      <span class="section-label reveal">影 像</span>
+      <h2 class="section-title reveal">让画面自己说话</h2>
+      <p class="ai-video-intro reveal">两类影像：一类用 AI 影像工具从零生成，逐镜把控分镜与动作节奏；一类把电影史里的镜头重新剪成一段叙事。前者造画面，后者读画面。</p>
+
+      <!-- 子类一：AI 影像 -->
+      <h3 class="motion-sub reveal">
+        <span class="motion-sub-cn">AI 影像</span>
+        <span class="motion-sub-en">AI MOTION</span>
+        <span class="motion-sub-note">工具生成 · 逐镜可控</span>
+      </h3>
 
       <div id="ai-video-grid" class="ai-video-grid">
         <article class="ai-video-card reveal" data-src="videos/ai-anime-1.mp4" data-poster="images/ai-anime-1-cover.jpg">
@@ -367,6 +374,30 @@
           <h3 class="ai-video-title">纯粹打戏</h3>
           <p class="ai-video-meta">AI 漫剧 · 1 分 09 秒</p>
           <p class="ai-video-desc">混凝土废墟里的纯粹交手。无对白，靠动作节奏、镜头切换与打击特效撑满全片。</p>
+        </article>
+      </div>
+
+      <!-- 子类二：混剪 -->
+      <h3 class="motion-sub reveal" style="margin-top:var(--spacing-xl);">
+        <span class="motion-sub-cn">混 剪</span>
+        <span class="motion-sub-en">MONTAGE</span>
+        <span class="motion-sub-note">影视评论 · 影像叙事</span>
+      </h3>
+
+      <p class="ai-video-intro reveal" style="margin-bottom:var(--spacing-lg);">为影评视频《我想生活在一个普通人也被尊重的社会》制作的开篇段落。把五部贾樟柯作品里最具重量的瞬间重新排序，让画面自己讲出「一个时代」——不靠旁白，只靠镜头的并置与交替。全片剪辑、调色、节奏与画面处理由独立完成。</p>
+
+      <div class="ai-video-grid ai-video-grid-single">
+        <!-- 外链卡：整卡是 <a>，点击新窗口打开 B 站视频页，不走弹层 -->
+        <article class="ai-video-card reveal">
+          <a class="ai-video-link" href="https://www.bilibili.com/video/BV1E9p76zEA2/" target="_blank" rel="noopener">
+            <div class="ai-video-thumb">
+              <img src="images/montage-time-cover.jpg" width="1920" height="1080" alt="我想生活在一个普通人也被尊重的社会 封面" loading="lazy">
+              <span class="ai-video-play" aria-hidden="true"></span>
+            </div>
+            <h3 class="ai-video-title">我想生活在一个普通人也被尊重的社会</h3>
+            <p class="ai-video-meta">影视混剪 · 26 秒 · 贾樟柯作品 · 2026</p>
+            <p class="ai-video-desc">《小武》《天注定》《三峡好人》《风流一代》……五个时代里的普通人，被镜头并排放在一起。悲悯不需要旁白。</p>
+          </a>
         </article>
       </div>
     </div>

@@ -1020,6 +1020,83 @@ button {
   line-height: 1.8;
 }
 
+/* ---------- 影像章节内的子类小标题（AI 影像 / 混剪） ---------- */
+.motion-sub {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.motion-sub-cn {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+}
+
+.motion-sub-en {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.24em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* 子标题右侧的说明：推到最右，与左侧中英文拉开层次 */
+.motion-sub-note {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+/* 外链作品卡：整卡包在 <a> 里（点击新窗口打开 B 站）。
+   继承卡片自身的排版，只清掉链接默认样式。 */
+.ai-video-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- 单张作品卡：宽幅图文分栏 ----------
+   AI 影像那边是双列网格，两张以上才排得满；混剪只有一部作品，
+   若沿用双列，卡片只占左半边、右半场空白，且长标题会被挤成两行。
+   这里改成通栏：封面在左、文字在右，长标题有足够横向空间。 */
+.ai-video-grid-single {
+  grid-template-columns: 1fr;
+}
+
+.ai-video-grid-single .ai-video-link {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+/* 文字块整体下沉一点，与封面里人物视线大致齐平，避免贴顶 */
+.ai-video-grid-single .ai-video-link > *:not(.ai-video-thumb) {
+  margin-top: var(--spacing-sm);
+}
+
+/* 分栏后标题回到与卡片顶部对齐，不再被缩略图推走 */
+.ai-video-grid-single .ai-video-title {
+  margin-top: 0;
+  line-height: 1.45;
+}
+
+/* 窄屏没有横向空间，退回上下堆叠 */
+@media (max-width: 900px) {
+  .ai-video-grid-single .ai-video-link {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
 /* 视频播放弹层 */
 .video-modal {
   position: fixed;
